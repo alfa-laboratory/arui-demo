@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import Type from 'prop-types';
 import ReactDOM from 'react-dom';
-import noop from 'lodash.noop';
+import noop from 'lodash/noop';
 import { transform } from 'buble';
 import PlaygroundError from 'react-styleguidist/lib/rsg-components/PlaygroundError';
 

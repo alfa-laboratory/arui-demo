@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 import Type from 'prop-types';
-import debounce from 'lodash.debounce';
+import debounce from 'lodash/debounce';
 import { DisplayModes } from 'react-styleguidist/lib/consts';
 
 import IconButton from 'arui-feather/icon-button';
