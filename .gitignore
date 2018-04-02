@@ -9,7 +9,7 @@ yarn-error.log
 package-lock.json
 yarn.lock
 
-styleguide*
-.tmp/
+./styleguide/
+./.tmp/
 
 coverage/

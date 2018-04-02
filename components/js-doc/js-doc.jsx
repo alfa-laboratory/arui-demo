@@ -3,7 +3,7 @@
 
 import React from 'react';
 import Type from 'prop-types';
-import map from 'lodash.map'; // Via react-styleguidist package
+import map from 'lodash.map';
 import Markdown from '../markdown';
 
 const plural = (array, caption) => (array.length === 1 ? caption : `${caption}s`);
