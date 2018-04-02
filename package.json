@@ -9,9 +9,9 @@
   "scripts": {
     "test": "karma start ./karma.config.js",
     "lint": "npm run lint-css && npm run lint-js",
-    "lint-js": "eslint ./*.js ./src/ ./gemini/ ./demo/components --ext .js,.jsx",
+    "lint-js": "eslint ./*.js ./components --ext .js,.jsx",
     "lint-md": "eslint -c .eslintrc.styleguide.js ./src/ --ext .md",
-    "lint-css": "stylelint ./src/**/*.css ./demo/**/*.css",
+    "lint-css": "stylelint ./components/**/*.css",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "github-release": "conventional-github-releaser -p angular",
     "release-patch": "npm version patch -m 'chore(*): patch version'",
