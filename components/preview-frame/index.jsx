@@ -15,11 +15,16 @@ import './index.css';
 @cn('preview-frame')
 export default class PreviewFrame extends Component {
     static propTypes = {
-        children: Type.node
+        children: Type.node,
+        height: Type.number,
+        width: Type.oneOfType(Type.number, Type.string)
     };
 
-    iframe;
+    static defaultProps = {
+        width: '100%'
+    }
 
+    iframe;
     contentDocument;
 
     componentDidMount() {
@@ -30,10 +35,10 @@ export default class PreviewFrame extends Component {
     }
 
     render(cn) {
-        const styleLinks = Array.from(document.querySelectorAll('link[type="text/css"]'));
-        const appStyles = Array.from(document.querySelectorAll('style')).map(style => style.innerText).join('\n');
-        const styles = `
-            html { height: 100%; }
+        let styleLinks = Array.from(document.querySelectorAll('link[type="text/css"]'));
+        let appStyles = Array.from(document.querySelectorAll('style')).map(style => style.innerText).join('\n');
+        let styles = `
+            html { height: 100%; width: 100%; }
 
             body {
                 height: 100%;
@@ -49,14 +54,18 @@ export default class PreviewFrame extends Component {
                 height: 100%;
             }
         ${appStyles}`;
+
         let height = 0;
+
         if (this.contentDocument) {
             height = `${this.contentDocument.body.scrollHeight}px`;
         }
-        const iframeProps = {
+
+        let iframeProps = {
             ...this.props,
-            style: { height }
+            style: { height: this.props.height || height, width: this.props.width }
         };
+
         return (
             <div className={ cn() } >
                 <Frame { ...iframeProps } ref={ (node) => { this.iframe = node; } } >
@@ -69,4 +78,8 @@ export default class PreviewFrame extends Component {
             </div>
         );
     }
+}
+
+if (typeof window === 'object') {
+    window.PreviewFrame = PreviewFrame;
 }
