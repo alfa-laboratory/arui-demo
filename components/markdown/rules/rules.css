@@ -48,7 +48,7 @@
         }
 
         &_good:after {
-            /* background: url(../../../src/icon/ui/ok/icon_ok_s_color.svg) no-repeat 50% 50%; */
+            background: url('./icons/good.svg') no-repeat 50% 50%;
         }
 
         &_bad:before {
@@ -63,7 +63,7 @@
         }
 
         &_bad:after {
-            /* background: url(../../../src/icon/ui/error/icon_error_s_color.svg) no-repeat 50% 50%; */
+            background: url('./icons/bad.svg') no-repeat 50% 50%;
         }
     }
 
