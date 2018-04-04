@@ -49,14 +49,9 @@
     &__docs {
         p {
             margin: 36px 0;
-            padding: 20px;
+            padding: 0;
             font-size: 16px;
             line-height: 1.5;
-            background-color: rgba(11, 31, 53, 0.05);
-
-            .styleguide_theme_alfa-on-color & {
-                background-color: rgba(255, 255, 255, 0.05);
-            }
         }
     }
 }

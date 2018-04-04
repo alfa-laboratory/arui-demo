@@ -4,7 +4,6 @@ import Type from 'prop-types';
 import { compiler } from 'markdown-to-jsx';
 
 import Link from 'arui-feather/link';
-import Label from 'arui-feather/label'; // instead of Text
 import Paragraph from 'arui-feather/paragraph'; // instead of Para
 import Heading from 'arui-feather/heading'; // instead of MarkdownHeading
 import Checkbox from 'arui-feather/checkbox';
@@ -16,6 +15,8 @@ import Pre from './pre';
 import Hr from './hr';
 import { Table, TableHead, TableBody, TableRow, TableCell } from './table';
 
+import Rules from './rules';
+
 // We’re explicitly specifying Webpack loaders here so we could skip specifying them in Webpack configuration.
 // That way we could avoid clashes between our loaders and user loaders.
 // eslint-disable-next-line import/no-unresolved, import/no-webpack-loader-syntax, max-len
@@ -23,7 +24,10 @@ require('!!react-styleguidist/loaders/style-loader!react-styleguidist/loaders/cs
 
 const baseOverrides = {
     a: {
-        component: Link
+        props: {
+            className: 'examples__link',
+            target: '_parent'
+        }
     },
     h1: {
         component: Heading,
@@ -80,18 +84,6 @@ const baseOverrides = {
             semantic: 'p'
         }
     },
-    em: {
-        component: Label, // TODO @teryaew: add Text component?
-        props: {
-            semantic: 'em'
-        }
-    },
-    strong: {
-        component: Label, // TODO @teryaew: add Text component?
-        props: {
-            semantic: 'strong'
-        }
-    },
     ul: {
         props: {
             className: 'examples__list'
@@ -143,6 +135,9 @@ const baseOverrides = {
     },
     td: {
         component: TableCell
+    },
+    Rules: {
+        component: Rules
     }
 };
 
