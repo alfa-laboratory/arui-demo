@@ -15,7 +15,7 @@ const THEMES = [LIGHT_THEME, DARK_THEME];
 
 function hasValidUrlTheme() {
     const theme = getParameterByName('theme');
-    return theme && THEMES.includes(theme);
+    return theme && THEMES.indexOf(theme) > -1;
 }
 
 @cn('view-with-theme-switcher')
