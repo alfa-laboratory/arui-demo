@@ -2,6 +2,10 @@
     position: relative;
     margin: 26px 0 36px;
 
+    @media (min-width: 1160px) {
+        margin-right: -240px;
+    }
+
     &__tab {
         position: relative;
     }
@@ -11,7 +15,8 @@
         z-index: 10;
         top: 0;
         right: 0;
-        padding: 0 20px;
+        min-width: 40px;
+        padding: 0;
         color: inherit;
         font-size: 16px;
     }
@@ -21,7 +26,8 @@
         z-index: 10;
         bottom: 100%;
         right: 0;
-        padding: 0 20px;
+        min-width: 40px;
+        padding: 0;
         color: inherit;
         font-size: 16px;
         opacity: 0.5;
