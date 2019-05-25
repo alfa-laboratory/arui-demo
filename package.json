@@ -1,0 +1,63 @@
+{
+  "name": "arui-demo",
+  "version": "0.1.0",
+  "description": "Alfa-Bank UI demo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfa-laboratory/arui-feather.git"
+  },
+  "scripts": {
+    "test": "karma start ./karma.config.js",
+    "lint": "npm run lint-css && npm run lint-js",
+    "lint-js": "eslint ./*.js ./components --ext .js,.jsx",
+    "lint-md": "eslint -c .eslintrc.styleguide.js ./src/ --ext .md",
+    "lint-css": "stylelint ./components/**/*.css",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "github-release": "conventional-github-releaser -p angular",
+    "release-patch": "npm version patch -m 'chore(*): patch version'",
+    "release-minor": "npm version minor -m 'chore(*): minor version'",
+    "release-major": "npm version major -m 'chore(*): major version'",
+    "version": "git fetch --tags && npm run changelog && git add CHANGELOG.md",
+    "postversion": "git push origin master && git push --tags && npm run publish",
+    "precommit": "lint-staged",
+    "demo": "styleguidist server",
+    "lint-staged": "lint-staged",
+    "build:demo": "styleguidist build"
+  },
+  "lint-staged": {
+    "concurrent": false,
+    "linters": {
+      "./*.{js,jsx}": [
+        "eslint"
+      ],
+      "*.css": [
+        "npm run lint-css"
+      ]
+    }
+  },
+  "author": "Good guys from Alfa Laboratory",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "arui-feather": "12.5.0",
+    "clipboard-copy": "2.0.0",
+    "markdown-to-jsx": "6.6.1",
+    "prop-types": "15.6.1",
+    "react-frame-component": "2.0.2",
+    "react-icons": "2.2.7",
+    "react-styleguidist": "9.0.8"
+  },
+  "peerDependencies": {
+    "react": ">=15.6",
+    "react-dom": ">=15.6"
+  },
+  "devDependencies": {
+    "arui-presets": "4.12.1",
+    "conventional-changelog-cli": "1.3.21",
+    "conventional-github-releaser": "2.0.2",
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "1.1.1",
+    "husky": "0.14.3",
+    "jest": "22.1.0",
+    "lint-staged": "7.0.0"
+  }
+}
