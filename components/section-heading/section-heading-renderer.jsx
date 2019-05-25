@@ -4,6 +4,8 @@ import Type from 'prop-types';
 import Heading from 'arui-feather/heading';
 import cn from 'arui-feather/cn';
 
+import './section-heading.css';
+
 @cn('section-heading')
 class SectionHeadingRenderer extends PureComponent {
     render(cn) {

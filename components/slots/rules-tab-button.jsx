@@ -5,17 +5,18 @@ import Type from 'prop-types';
 
 import TabItem from 'arui-feather/tab-item';
 
-const TabButton = (props) => {
+const RulesTabButton = (props) => {
     const component = props.props;
-    const showButton = component && (component.props || (component.methods && component.methods.length > 0));
+    const showButton = component && (component.rules && component.rules.length > 0);
+
     return showButton ?
         <TabItem { ...props } checked={ props.active }>
-            <div dangerouslySetInnerHTML={ { __html: props.children } } />
+            Правила <span>использования</span>
         </TabItem>
         : null;
 };
 
-TabButton.propTypes = {
+RulesTabButton.propTypes = {
     onClick: Type.func.isRequired,
     name: Type.string.isRequired,
     props: Type.shape({
@@ -26,4 +27,4 @@ TabButton.propTypes = {
     children: Type.node
 };
 
-export default TabButton;
+export default RulesTabButton;

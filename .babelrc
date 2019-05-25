@@ -1,0 +1,21 @@
+{
+  "presets": [
+    "@babel/react"
+  ],
+  "plugins": [
+    ["transform-react-remove-prop-types", {"mode": "wrap"}],
+    "@babel/plugin-proposal-export-default-from",
+    ["@babel/plugin-proposal-decorators", {"legacy":true}],
+    ["@babel/plugin-proposal-class-properties", {"loose": true}],
+    "babel-plugin-dynamic-import-node",
+    "@babel/plugin-proposal-export-namespace-from",
+    "@babel/plugin-proposal-object-rest-spread",
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "babel-plugin-dynamic-import-node"
+      ]
+    }
+  }
+}

@@ -1,180 +1,148 @@
-/* eslint import/no-extraneous-dependencies: 0 */
-
 import React, { Component } from 'react';
-import Type from 'prop-types';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import noop from 'lodash/noop';
-import { transform } from 'buble';
-import PlaygroundError from 'react-styleguidist/lib/rsg-components/PlaygroundError';
+import cn from 'arui-feather/cn'
+import PlaygroundError from 'rsg-components/PlaygroundError';
+import ReactExample from 'rsg-components/ReactExample';
+import { throws } from 'assert';
 
-import ThemeProvider from 'arui-feather/theme-provider';
+const improveErrorMessage = message =>
+	message.replace(
+		'Check the render method of `StateHolder`.',
+		'Check the code of your example in a Markdown file or in the editor below.'
+	);
 
-import cn from 'arui-feather/cn';
-
-/* eslint-disable react/no-multi-comp */
-
-const compileCode = (code, config) => transform(code, config).code;
-
-// Wrap everything in a React component to leverage the state management of this component
-class PreviewComponent extends Component {
-    static propTypes = {
-        component: Type.func.isRequired,
-        onError: Type.func.isRequired
-    };
-
-    constructor() {
-        super();
-        this.state = {};
-        this.setState = this.setState.bind(this);
-        this.setInitialState = this.setInitialState.bind(this);
-    }
-
-    componentDidCatch(error) {
-        this.props.onError(error);
-    }
-
-    render() {
-        return this.props.component(this.state, this.setState, this.setInitialState);
-    }
-
-    // Synchronously set initial state, so it will be ready before first render
-    // Ignore all consequent calls
-    setInitialState(initialState) {
-        Object.assign(this.state, initialState);
-        this.setInitialState = noop;
-    }
-}
 
 @cn('preview')
-export default class Preview extends Component {
-    static propTypes = {
-        code: Type.string.isRequired,
-        evalInContext: Type.func.isRequired
+export default class  extends Component {
+	static propTypes = {
+		code: PropTypes.string.isRequired,
+		evalInContext: PropTypes.func.isRequired,
+	};
+	static contextTypes = {
+        theme: PropTypes.string.isRequired,
+		config: PropTypes.object.isRequired,
+		codeRevision: PropTypes.number.isRequired,
+	};
+	state = {
+		error: null,
     };
 
-    static contextTypes = {
-        config: Type.object.isRequired,
-        codeRevision: Type.number.isRequired,
-        theme: Type.string.isRequired
-    };
-
-    constructor() {
-        super();
-
-        this.state = {
-            error: null
-        };
-
-        this.handleError = this.handleError.bind(this);
+    constructor(props, context) {
+        super(props, context);
+        this.state.theme = context.theme;
     }
 
-    componentDidMount() {
-        // Clear console after hot reload, do not clear on the first load to keep any warnings
-        if (this.context.codeRevision > 0) {
-            // eslint-disable-next-line no-console
-            console.clear();
+	componentDidMount() {
+		// Clear console after hot reload, do not clear on the first load
+		// to keep any warnings
+		if (this.context.codeRevision > 0) {
+			// eslint-disable-next-line no-console
+			console.clear();
+		}
+
+		this.executeCode();
+	}
+
+	shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log(nextContext);
+		return this.state.error !== nextState.error || this.props.code !== nextProps.code || this.context != nextContext;
+    }
+
+	componentDidUpdate(prevProps, prevState, snapshot) {
+        // TODO: реакция на изменение контекста
+
+		if (this.props.code !== prevProps.code || this.state.theme != this.context.theme) {
+			this.executeCode();
         }
 
-        this.executeCode();
-    }
-
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return this.state.error !== nextState.error || this.props.code !== nextProps.code ||
-            this.context.theme !== nextContext.theme;
-    }
-
-    componentDidUpdate(prevProps, prevContext) {
-        if (this.props.code !== prevProps.code || this.context.theme !== prevContext.theme) {
-            this.executeCode();
+        if (this.state.theme != this.context.theme) {
+            this.setState({
+                theme: this.context.theme
+            })
         }
     }
 
-    componentWillUnmount() {
-        this.unmountPreview();
-    }
+	componentWillUnmount() {
+		this.unmountPreview();
+	}
 
-    render(cn) {
-        const { error } = this.state;
-        return (
-            <div className={ cn() }>
-                <div ref={ (ref) => { this.mountNode = ref; } } />
-                { error && <PlaygroundError message={ error } /> }
-            </div>
-        );
-    }
+	unmountPreview() {
+		if (this.mountNode) {
+			ReactDOM.unmountComponentAtNode(this.mountNode);
+		}
+	}
 
-    handleError(error) {
-        this.unmountPreview();
+	executeCode() {
+		this.setState({
+			error: null,
+		});
 
-        this.setState({
-            error: error.toString()
-        });
-
-        console.error(error); // eslint-disable-line no-console
-    }
-
-
-    unmountPreview() {
-        if (this.mountNode) {
-            ReactDOM.unmountComponentAtNode(this.mountNode);
-        }
-    }
-
-    executeCode() {
-        this.setState({
-            error: null
-        });
-
-        const { code } = this.props;
-        if (!code) {
-            return;
+		const { code } = this.props;
+		if (!code) {
+			return;
         }
 
-        const compiledCode = this.compileCode(code);
-        if (!compiledCode) {
-            return;
-        }
+        const ContextProvider = createContextProvider(this.context)
 
-        const exampleComponent = this.evalInContext(compiledCode);
-        const wrappedComponent = (
-            <ThemeProvider theme={ this.context.theme }>
-                <PreviewComponent component={ exampleComponent } onError={ this.handleError } />
-            </ThemeProvider>
-        );
+		const wrappedComponent = (
+            <ContextProvider>
+                <ReactExample
+                    code={code}
+                    evalInContext={this.props.evalInContext}
+                    onError={this.handleError}
+                    compilerConfig={this.context.config.compilerConfig}
+                />
+            </ContextProvider>
+		);
 
-        window.requestAnimationFrame(() => {
-            this.unmountPreview();
-            try {
-                ReactDOM.render(wrappedComponent, this.mountNode);
-            } catch (err) {
-                this.handleError(err);
-            }
-        });
+		window.requestAnimationFrame(() => {
+			this.unmountPreview();
+			try {
+				ReactDOM.render(wrappedComponent, this.mountNode);
+			} catch (err) {
+				this.handleError(err);
+			}
+		});
+	}
+
+	handleError = err => {
+		this.unmountPreview();
+
+		this.setState({
+			error: improveErrorMessage(err.toString()),
+		});
+
+		console.error(err); // eslint-disable-line no-console
+	};
+
+	render(cn) {
+		const { error } = this.state;
+		return (
+			<div
+                className={ cn() }>
+				<div ref={ref => (this.mountNode = ref)} />
+				{error && <PlaygroundError message={error} />}
+			</div>
+		);
+	}
+}
+
+function createContextProvider(context) {
+    class ContextProvider extends React.Component {
+      getChildContext() {
+        return context;
+      }
+
+      render() {
+        return this.props.children;
+      }
     }
 
-    compileCode(code) {
-        try {
-            return compileCode(code, this.context.config.compilerConfig);
-        } catch (err) {
-            this.handleError(err);
-        }
-        return false;
-    }
+    ContextProvider.childContextTypes = {};
+    Object.keys(context).forEach(key => {
+      ContextProvider.childContextTypes[key] = PropTypes.any.isRequired;
+    });
 
-    evalInContext(compiledCode) {
-        // 1. Use setter/with to call our callback function when user write `initialState = {...}`
-        // 2. Wrap code in JSON.stringify/eval to catch the component and return it
-        const exampleComponentCode = `
-        var stateWrapper = {
-            set initialState(value) {
-                __setInitialState(value)
-            },
-        }
-        with (stateWrapper) {
-            return eval(${JSON.stringify(compiledCode)})
-        }
-        `;
-
-        return this.props.evalInContext(exampleComponentCode);
-    }
+    return ContextProvider;
 }

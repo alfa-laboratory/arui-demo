@@ -1,81 +1,73 @@
 /* eslint import/no-extraneous-dependencies: [2, {"devDependencies": true}] */
 
-import IsolateButton from './isolate-button';
+import Editor from 'rsg-components/Editor';
 
-import CodeButton from './code-button';
-import CodeView from './code-view';
-
-import TabButton from './tab-button';
+// import CodeTabButton from './code-tab-button';
+// import CodeShareButton from './code-share-button';
 
 import ExamplesTab from './examples-tab';
-import DocsTab from './docs-tab';
-import RulesTab from './rules-tab';
+import ExamplesTabButton from './examples-tab-button';
 
-// TODO @teryaew: rename rsg tab names
+import DocsTab from './docs-tab';
+import DocsTabButton from './docs-tab-button';
+
+import RulesTab from './rules-tab';
+import RulesTabButton from './rules-tab-button';
+
+
 export const EXAMPLES_TAB = 'examples-view';
 export const DOCS_TAB = 'docs-view';
 export const RULES_TAB = 'rules-view';
 
 export const CODE_VIEW = 'code-view';
+export const DOCS_TAB_USAGE = 'rsg-usage';
 
-const toolbar = [IsolateButton];
+export const EXAMPLE_TAB_CODE_EDITOR = 'rsg-code-editor';
 
-export default {
-    sectionToolbar: toolbar,
-    componentToolbar: toolbar,
 
-    examplesToolbar: toolbar,
+export default (function () {
+    const toolbar = [() => null];
+    return {
+        sectionToolbar: toolbar,
+        componentToolbar: toolbar,
+        exampleToolbar: toolbar,
 
-    codeButton: [
-        {
-            id: CODE_VIEW,
-            render: CodeButton
-        }
-    ],
-    codeView: [
-        {
-            id: CODE_VIEW,
-            render: CodeView
-        }
-    ],
+        exampleTabButtons: [
 
-    examplesTabButton: [
-        {
-            id: EXAMPLES_TAB,
-            render: TabButton,
-            children: 'Примеры <span>и код</span>'
-        }
-    ],
-    examplesTab: [
-        {
-            id: EXAMPLES_TAB,
-            render: ExamplesTab
-        }
-    ],
-    docsTabButton: [
-        {
-            id: DOCS_TAB,
-            render: TabButton,
-            children: 'Свойства <span>и методы</span>'
-        }
-    ],
-    docsTab: [
-        {
-            id: DOCS_TAB,
-            render: DocsTab
-        }
-    ],
-    rulesTabButton: [
-        {
-            id: RULES_TAB,
-            render: TabButton,
-            children: 'Правила <span>использования</span>'
-        }
-    ],
-    rulesTab: [
-        {
-            id: RULES_TAB,
-            render: RulesTab
-        }
-    ]
-};
+        ],
+        exampleTabs: [
+            {
+				id: EXAMPLE_TAB_CODE_EDITOR,
+				render: Editor,
+			},
+        ],
+        docsTabButtons: [
+            {
+                id: EXAMPLES_TAB,
+                render: ExamplesTabButton
+            },
+            {
+                id: DOCS_TAB_USAGE,
+                render: DocsTabButton
+            },
+            {
+                id: RULES_TAB,
+                render: RulesTabButton
+            }
+        ],
+        docsTabs: [
+            {
+                id: EXAMPLES_TAB,
+                render: ExamplesTab
+            },
+			{
+				id: DOCS_TAB_USAGE,
+				render: DocsTab,
+            },
+            {
+                id: RULES_TAB,
+                render: RulesTab
+            }
+		],
+    };
+})

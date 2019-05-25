@@ -3,13 +3,12 @@
 import Type from 'prop-types';
 import { compiler } from 'markdown-to-jsx';
 
-import Link from 'arui-feather/link';
+import Text from 'rsg-components/Text';
 import Paragraph from 'arui-feather/paragraph'; // instead of Para
 import Heading from 'arui-feather/heading'; // instead of MarkdownHeading
 import Checkbox from 'arui-feather/checkbox';
 
 import Code from '../code';
-
 import Blockquote from './blockquote';
 import Pre from './pre';
 import Hr from './hr';
@@ -20,7 +19,7 @@ import Rules from './rules';
 // We’re explicitly specifying Webpack loaders here so we could skip specifying them in Webpack configuration.
 // That way we could avoid clashes between our loaders and user loaders.
 // eslint-disable-next-line import/no-unresolved, import/no-webpack-loader-syntax, max-len
-require('!!react-styleguidist/loaders/style-loader!react-styleguidist/loaders/css-loader!highlight.js/styles/tomorrow.css');
+// require('!!react-styleguidist/lib/loaders/style-loader!react-styleguidist/lib/loaders/css-loader!highlight.js/styles/tomorrow.css');
 
 const baseOverrides = {
     a: {

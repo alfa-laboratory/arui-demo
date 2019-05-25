@@ -3,18 +3,21 @@
 
 import Type from 'prop-types';
 
-import Examples from '../examples';
+import Examples from 'rsg-components/Examples/Examples';
 
 const ExamplePlaceholder = process.env.STYLEGUIDIST_ENV !== 'production'
-    ? require('react-styleguidist/lib/rsg-components/ExamplePlaceholder').default
+    ? require('react-styleguidist/lib/client/rsg-components/ExamplePlaceholder').default
     : () => <div />;
 
 function ExamplesTab(component) {
     const { props } = component;
-
+    const { usages } = props;
     return (
-        props.examples.length > 0 ? (
-            <Examples examples={ props.examples } name={ props.displayName } />
+        usages.length > 0 ? (
+            <Examples
+                exampleMode='expand'
+                examples={ usages }
+                name={ props.displayName } />
         ) : (
             <ExamplePlaceholder name={ props.displayName } />
         )

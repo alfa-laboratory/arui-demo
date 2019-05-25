@@ -1,15 +1,18 @@
 import React from 'react';
 import Type from 'prop-types';
+import TabItem from 'arui-feather/tab-item';
 
-import Button from 'arui-feather/button';
-
-const ExamplesTabButton = (props) => {
+const DocsTabButton = (props) => {
     const component = props.props;
     const showButton = component.props || (component.methods && component.methods.length > 0);
-    return showButton ? <Button { ...props }>Свойства и методы</Button> : null;
+    return showButton ? (
+        <TabItem { ...props } checked={ props.active }>
+            Свойства и методы
+        </TabItem>
+    ) : null;
 };
 
-ExamplesTabButton.propTypes = {
+DocsTabButton.propTypes = {
     onClick: Type.func.isRequired,
     name: Type.string.isRequired,
     props: Type.shape({
@@ -19,4 +22,4 @@ ExamplesTabButton.propTypes = {
     active: Type.bool
 };
 
-export default ExamplesTabButton;
+export default DocsTabButton;

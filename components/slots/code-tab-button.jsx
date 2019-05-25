@@ -3,12 +3,12 @@ import Type from 'prop-types';
 
 import IconButton from 'arui-feather/icon-button';
 
-const CodeButton = props => <IconButton { ...props }>{ '<>' }</IconButton>;
+const CodeTabButton = props => <IconButton { ...props }>{ '<>' }</IconButton>;
 
-CodeButton.propTypes = {
+CodeTabButton.propTypes = {
     active: Type.bool,
     name: Type.string.isRequired,
     onClick: Type.func.isRequired
 };
 
-export default CodeButton;
+export default CodeTabButton;
