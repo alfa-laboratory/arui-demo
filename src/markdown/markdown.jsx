@@ -8,7 +8,7 @@ import Paragraph from 'arui-feather/paragraph'; // instead of Para
 import Heading from 'arui-feather/heading'; // instead of MarkdownHeading
 import Checkbox from 'arui-feather/checkbox';
 
-import Code from '../code';
+import Code from 'rsg-components/Code';
 import Blockquote from './blockquote';
 import Pre from './pre';
 import Hr from './hr';

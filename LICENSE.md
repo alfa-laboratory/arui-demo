@@ -1,6 +1,6 @@
 © Alfa-Bank, 2018
 
-The Source Code called `arui-feather` available at https://github.com/alfa-laboratory/arui-feather is subject to the terms of the Mozilla Public License, v. 2.0 (hereinafter - MPL).
+The Source Code called `arui-demo` available at https://github.com/alfa-laboratory/arui-demo is subject to the terms of the Mozilla Public License, v. 2.0 (hereinafter - MPL).
 The text of MPL is the following:
 
 Mozilla Public License, version 2.0
