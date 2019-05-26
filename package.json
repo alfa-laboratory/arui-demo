@@ -10,9 +10,9 @@
     "test": "karma start ./karma.config.js",
     "compile": "gulp --cwd . compile",
     "lint": "npm run lint-css && npm run lint-js",
-    "lint-js": "eslint ./*.js ./components --ext .js,.jsx",
+    "lint-js": "eslint ./*.js ./src --ext .js,.jsx",
     "lint-md": "eslint -c .eslintrc.styleguide.js ./src/ --ext .md",
-    "lint-css": "stylelint ./components/**/*.css",
+    "lint-css": "stylelint ./src/**/*.css",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "github-release": "conventional-github-releaser -p angular",
     "release-patch": "npm version patch -m 'chore(*): patch version'",
@@ -72,6 +72,6 @@
     "husky": "0.14.3",
     "jest": "22.1.0",
     "library-utils": "2.3.1",
-    "lint-staged": "7.0.0"
+    "lint-staged": "8.1.1"
   }
 }
