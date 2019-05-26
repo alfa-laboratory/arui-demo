@@ -7,7 +7,7 @@ import Type from 'prop-types';
 import ThemeProvider from 'arui-feather/theme-provider';
 import cn from 'arui-feather/cn';
 
-import { getParameterByName } from '../../utils/url';
+import { getParameterByName } from '../utils/url';
 
 const LIGHT_THEME = 'alfa-on-white';
 const DARK_THEME = 'alfa-on-color';
