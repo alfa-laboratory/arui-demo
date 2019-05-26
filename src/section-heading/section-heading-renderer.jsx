@@ -36,7 +36,8 @@ SectionHeadingRenderer.propTypes = {
 };
 
 SectionHeadingRenderer.contextTypes = {
-    displayMode: Type.string
+    displayMode: Type.string,
+    theme: Type.string
 };
 
 export default SectionHeadingRenderer;

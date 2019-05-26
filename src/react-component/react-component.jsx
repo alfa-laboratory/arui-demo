@@ -1,6 +1,3 @@
-/* eslint import/no-extraneous-dependencies: [2, {"devDependencies": true}] */
-/* eslint react/forbid-prop-types: 0 */
-
 import React, { Component } from 'react';
 import ReactComponent from 'react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponent';
 
