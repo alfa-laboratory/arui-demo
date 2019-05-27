@@ -1,3 +1,5 @@
+@import 'arui-feather/vars.css';
+
 .section-heading {
     .heading {
         margin: 0 0 24px;
@@ -5,7 +7,7 @@
 
         /* TODO 24px to fit long component names */
 
-        line-height: 1.2;
+        line-height: var(--line-height-condensed);
         font-weight: 900;
 
         .styleguide_theme_alfa-on-color & {
@@ -13,7 +15,7 @@
         }
 
         @media (--medium) {
-            font-size: 40px;
+            font-size: var(--font-size-3xl);
             line-height: 1.1;
         }
     }

@@ -1,3 +1,5 @@
+@import 'arui-feather/vars.css';
+
 .react-component {
     margin: 0 0 36px;
 
@@ -8,7 +10,7 @@
 
         .tab-item {
             padding: 0 0 9px;
-            font-size: 18px;
+            font-size: var(--font-size-l);
             text-transform: none;
             letter-spacing: normal;
 
@@ -50,7 +52,7 @@
         p {
             margin: 36px 0;
             padding: 0;
-            font-size: 16px;
+            font-size: var(--font-size-m);
             line-height: 1.5;
         }
     }

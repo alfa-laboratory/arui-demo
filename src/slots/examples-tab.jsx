@@ -12,12 +12,14 @@ const ExamplePlaceholder = process.env.STYLEGUIDIST_ENV !== 'production'
 function ExamplesTab(component) {
     const { props } = component;
     const { usages } = props;
+
     return (
         usages.length > 0 ? (
             <Examples
                 exampleMode='expand'
                 examples={ usages }
-                name={ props.displayName } />
+                name={ props.displayName }
+            />
         ) : (
             <ExamplePlaceholder name={ props.displayName } />
         )

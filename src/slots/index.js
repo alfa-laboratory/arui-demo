@@ -2,8 +2,10 @@
 
 import Editor from 'rsg-components/Editor';
 
-// import CodeTabButton from './code-tab-button';
-// import CodeShareButton from './code-share-button';
+/*
+ * import CodeTabButton from './code-tab-button';
+ * import CodeShareButton from './code-share-button';
+ */
 
 import ExamplesTab from './examples-tab';
 import ExamplesTabButton from './examples-tab-button';
@@ -14,7 +16,6 @@ import DocsTabButton from './docs-tab-button';
 import RulesTab from './rules-tab';
 import RulesTabButton from './rules-tab-button';
 
-
 export const EXAMPLES_TAB = 'examples-view';
 export const DOCS_TAB = 'docs-view';
 export const RULES_TAB = 'rules-view';
@@ -24,9 +25,9 @@ export const DOCS_TAB_USAGE = 'rsg-usage';
 
 export const EXAMPLE_TAB_CODE_EDITOR = 'rsg-code-editor';
 
-
 export default (function () {
     const toolbar = [() => null];
+
     return {
         sectionToolbar: toolbar,
         componentToolbar: toolbar,
@@ -37,9 +38,9 @@ export default (function () {
         ],
         exampleTabs: [
             {
-				id: EXAMPLE_TAB_CODE_EDITOR,
-				render: Editor,
-			},
+                id: EXAMPLE_TAB_CODE_EDITOR,
+                render: Editor
+            }
         ],
         docsTabButtons: [
             {
@@ -60,14 +61,14 @@ export default (function () {
                 id: EXAMPLES_TAB,
                 render: ExamplesTab
             },
-			{
-				id: DOCS_TAB_USAGE,
-				render: DocsTab,
+            {
+                id: DOCS_TAB_USAGE,
+                render: DocsTab
             },
             {
                 id: RULES_TAB,
                 render: RulesTab
             }
-		],
+        ]
     };
-})
+});

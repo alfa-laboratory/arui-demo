@@ -2,8 +2,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-/* eslint import/no-extraneous-dependencies: [2, {"devDependencies": true}] */
-/* eslint react/no-danger: 0 */
 import { Component } from 'react';
 import Type from 'prop-types';
 import Frame from 'react-frame-component';
@@ -61,7 +59,7 @@ export default class PreviewFrame extends Component {
             height = `${this.contentDocument.body.scrollHeight}px`;
         }
 
-        let iframeProps = {
+        const iframeProps = {
             ...this.props,
             style: { height: this.props.height || height, width: this.props.width }
         };

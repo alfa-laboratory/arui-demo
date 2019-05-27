@@ -10,6 +10,6 @@ export default class extends React.Component {
             <div className={ cn() }>
                 <Usage { ...this.props } />
             </div>
-        )
+        );
     }
 }

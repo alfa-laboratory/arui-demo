@@ -45,6 +45,8 @@
     "gulp-babel": "^8.0.0",
     "markdown-to-jsx": "6.6.1",
     "prop-types": "15.6.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-frame-component": "2.0.2",
     "react-icons": "2.2.7",
     "react-styleguidist": "9.0.8"
@@ -55,7 +57,7 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.4.3",
-    "arui-presets": "5.0.2",
+    "arui-presets": "4.13.4",
     "arui-presets-lint": "^1.2.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^8.0.5",
@@ -73,6 +75,7 @@
     "husky": "0.14.3",
     "jest": "22.1.0",
     "library-utils": "2.3.1",
-    "lint-staged": "8.1.1"
+    "lint-staged": "8.1.1",
+    "eslint-plugin-chai-friendly": "^0.4.1"
   }
 }
