@@ -5,6 +5,7 @@ import TabItem from 'arui-feather/tab-item';
 const DocsTabButton = (props) => {
     const component = props.props;
     const showButton = component.props || (component.methods && component.methods.length > 0);
+
     return showButton ? (
         <TabItem { ...props } checked={ props.active }>
             Свойства и методы

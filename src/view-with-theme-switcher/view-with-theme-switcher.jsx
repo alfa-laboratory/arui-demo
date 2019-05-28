@@ -1,6 +1,8 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
 
 import { Component } from 'react';
 import Type from 'prop-types';
@@ -15,6 +17,7 @@ const THEMES = [LIGHT_THEME, DARK_THEME];
 
 function hasValidUrlTheme() {
     const theme = getParameterByName('theme');
+
     return theme && THEMES.indexOf(theme) > -1;
 }
 
@@ -42,12 +45,17 @@ class ViewWithThemeSwitcher extends Component {
     }
 
     componentDidMount() {
-        if (hasValidUrlTheme()) this.setTheme(getParameterByName('theme'));
+        if (hasValidUrlTheme()) {
+            this.setTheme(getParameterByName('theme'));
+        }
     }
 
     componentDidUpdate() {
         const urlTheme = getParameterByName('theme');
-        if (hasValidUrlTheme() && urlTheme !== this.state.theme) this.setTheme(urlTheme);
+
+        if (hasValidUrlTheme() && urlTheme !== this.state.theme) {
+            this.setTheme(urlTheme);
+        }
     }
 
     render(cn) {

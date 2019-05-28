@@ -9,10 +9,12 @@ const ExamplesTabButton = (props) => {
     const component = props.props;
     const showButton = component && component.usages && component.usages.length > 0;
 
-    return showButton ?
-        <TabItem { ...props } checked={ props.active }>
-            Примеры <span>и код</span>
-        </TabItem>
+    return showButton
+        ? (
+            <TabItem { ...props } checked={ props.active }>
+                Примеры <span>и код</span>
+            </TabItem>
+        )
         : null;
 };
 

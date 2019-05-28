@@ -2,6 +2,7 @@
 /* eslint react/forbid-prop-types: 0 */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import cn from 'arui-feather/cn';
 import Examples from 'rsg-components/Examples';
 
@@ -9,6 +10,12 @@ import './index.css';
 
 @cn('examples')
 export default class extends React.Component {
+    static propTypes = {
+        props: {
+            rules: PropTypes.array
+        }
+    };
+
     render(cn) {
         const { props } = this.props;
         const { rules } = props;

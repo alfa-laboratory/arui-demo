@@ -12,12 +12,16 @@ import Code from 'rsg-components/Code';
 import Blockquote from './blockquote';
 import Pre from './pre';
 import Hr from './hr';
-import { Table, TableHead, TableBody, TableRow, TableCell } from './table';
+import {
+    Table, TableHead, TableBody, TableRow, TableCell
+} from './table';
 
 import Rules from './rules';
 
-// We’re explicitly specifying Webpack loaders here so we could skip specifying them in Webpack configuration.
-// That way we could avoid clashes between our loaders and user loaders.
+/*
+ * We’re explicitly specifying Webpack loaders here so we could skip specifying them in Webpack configuration.
+ * That way we could avoid clashes between our loaders and user loaders.
+ */
 // eslint-disable-next-line import/no-unresolved, import/no-webpack-loader-syntax, max-len
 // require('!!react-styleguidist/lib/loaders/style-loader!react-styleguidist/lib/loaders/css-loader!highlight.js/styles/tomorrow.css');
 
@@ -149,6 +153,7 @@ const inlineOverrides = {
 
 function Markdown({ text, inline }) {
     const overrides = inline ? inlineOverrides : baseOverrides;
+
     return compiler(text, { overrides, forceBlock: true });
 }
 

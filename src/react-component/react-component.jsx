@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactComponent from 'react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponent';
 
-
 export default class extends Component {
+    static propTypes = {
+        component: {
+            props: {
+                examples: PropTypes.array
+            }
+        }
+    };
+
+    componentDidMount() {
+        this.reactComponent.handleTabChange('examples-view');
+    }
+
     render() {
         const examples = [];
         const { component } = this.props;
@@ -13,6 +25,7 @@ export default class extends Component {
             } else {
                 examples.push(item);
             }
+
             return acc;
         }, []);
 
@@ -27,17 +40,15 @@ export default class extends Component {
                     rules
                 }
             }
-        }
+        };
 
         return (
             <ReactComponent
-                ref={(node) => this.reactComponent = node }
+                ref={ (node) => {
+                    this.reactComponent = node;
+                } }
                 { ...modifiedProps }
             />
-        )
-    }
-
-    componentDidMount() {
-        this.reactComponent.handleTabChange('examples-view')
+        );
     }
 }

@@ -1,6 +1,8 @@
-/* This Source Code Form is subject to the terms of the Mozilla Public
+/*
+ * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
 
 import { Component } from 'react';
 import Type from 'prop-types';
@@ -33,9 +35,9 @@ export default class PreviewFrame extends Component {
     }
 
     render(cn) {
-        let styleLinks = Array.from(document.querySelectorAll('link[type="text/css"]'));
-        let appStyles = Array.from(document.querySelectorAll('style')).map(style => style.innerText).join('\n');
-        let styles = `
+        const styleLinks = Array.from(document.querySelectorAll('link[type="text/css"]'));
+        const appStyles = Array.from(document.querySelectorAll('style')).map(style => style.innerText).join('\n');
+        const styles = `
             html { height: 100%; width: 100%; }
 
             body {
@@ -66,7 +68,12 @@ export default class PreviewFrame extends Component {
 
         return (
             <div className={ cn() } >
-                <Frame { ...iframeProps } ref={ (node) => { this.iframe = node; } } >
+                <Frame
+                    { ...iframeProps }
+                    ref={ (node) => {
+                        this.iframe = node;
+                    } }
+                >
                     { styleLinks.map(({ href }) => (
                         <link key={ href } href={ href } type='text/css' rel='stylesheet' />
                     )) }

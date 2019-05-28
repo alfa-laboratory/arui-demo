@@ -1,4 +1,5 @@
 import cn from 'arui-feather/cn';
+import PropTypes from 'prop-types';
 import { PureComponent } from 'react';
 import RsgEditor from 'react-styleguidist/lib/client/rsg-components/Editor/Editor';
 import IconButton from 'arui-feather/icon-button';
@@ -7,9 +8,14 @@ import './editor.css';
 
 @cn('editor')
 export default class extends PureComponent {
+    static propTypes = {
+        code: PropTypes.string
+    };
+
     handleShareExampleClick = () => {
         const code = encodeURI(this.props.code);
         const { pathname } = window.location;
+
         window.open(`${pathname}#playground/code=${code}`, '_blank');
     }
 

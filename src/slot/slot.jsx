@@ -9,6 +9,7 @@ export default function Slot({
     name, active, onlyActive, props = {}
 }, { slots }) {
     const fills = slots[name];
+
     if (!fills) {
         throw new Error(`Slot "${name}" not found, available slots: ${Object.keys(slots).join(', ')}`);
     }
@@ -16,6 +17,7 @@ export default function Slot({
     const rendered = fills.map((Fill, index) => {
         // { id: 'pizza', render: ({ foo }) => <div>{foo}</div>, children: 'bar' }
         const { id, render, children } = Fill;
+
         if (id && render) {
             // Render only specified fill
             if (onlyActive && id !== active) {
@@ -23,6 +25,7 @@ export default function Slot({
             }
 
             const { onClick } = props;
+
             props = {
                 ...props,
                 name: id,

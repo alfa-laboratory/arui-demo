@@ -9,10 +9,12 @@ const RulesTabButton = (props) => {
     const component = props.props;
     const showButton = component && (component.rules && component.rules.length > 0);
 
-    return showButton ?
-        <TabItem { ...props } checked={ props.active }>
-            Правила <span>использования</span>
-        </TabItem>
+    return showButton
+        ? (
+            <TabItem { ...props } checked={ props.active }>
+                Правила <span>использования</span>
+            </TabItem>
+        )
         : null;
 };
 

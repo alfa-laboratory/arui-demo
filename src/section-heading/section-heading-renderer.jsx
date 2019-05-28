@@ -10,8 +10,10 @@ import './section-heading.css';
 class SectionHeadingRenderer extends PureComponent {
     render(cn) {
         const sizes = ['xl', 'l', 'm', 's'];
-        // TODO @teryaew: handle 0-6 range for heading sizes
-        // const headingLevel = Math.min(6, this.props.depth);
+        /*
+         * TODO @teryaew: handle 0-6 range for heading sizes
+         * const headingLevel = Math.min(6, this.props.depth);
+         */
 
         return (
             <div className={ cn() }>
