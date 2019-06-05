@@ -1,3 +1,19 @@
+<a name="1.0.2"></a>
+## [1.0.2](https://github.com/alfa-laboratory/arui-feather/compare/v2.0.0...v1.0.2) (2019-06-05)
+
+
+### Bug Fixes
+
+* fix theme-switcher ([3ed1c3a](https://github.com/alfa-laboratory/arui-feather/commit/3ed1c3a))
+
+
+### Features
+
+* add global, remove obsolete files, reduce overriding ([6e70668](https://github.com/alfa-laboratory/arui-feather/commit/6e70668))
+* autonavigate to first componentn demo if all components display ([52580e5](https://github.com/alfa-laboratory/arui-feather/commit/52580e5))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/alfa-laboratory/arui-feather/compare/v2.0.0...v1.0.0) (2019-05-26)
 
