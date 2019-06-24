@@ -9,7 +9,7 @@
     white-space: pre;
     background-color: rgba(11, 31, 53, 0.05);
 
-    .styleguide_theme_alfa-on-color & {
+    .view-with-theme-switcher__layout_theme_alfa-on-color & {
         background-color: #f3f4f5;
     }
 
@@ -19,7 +19,7 @@
         white-space: pre;
         background-color: transparent;
 
-        .styleguide_theme_alfa-on-color & {
+        .view-with-theme-switcher__layout_theme_alfa-on-color & {
             background-color: transparent;
         }
     }

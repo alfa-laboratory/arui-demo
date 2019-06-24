@@ -10,10 +10,6 @@
         line-height: var(--line-height-condensed);
         font-weight: 900;
 
-        .styleguide_theme_alfa-on-color & {
-            color: #fff;
-        }
-
         @media (--medium) {
             font-size: var(--font-size-3xl);
             line-height: 1.1;

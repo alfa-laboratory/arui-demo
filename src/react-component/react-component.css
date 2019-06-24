@@ -32,7 +32,7 @@
                 color: rgba(240, 50, 38, 1);
                 text-shadow: -0.03ex 0 rgba(240, 50, 38, 1), 0.03ex 0 rgba(240, 50, 38, 1);
 
-                .styleguide_theme_alfa-on-color & {
+                .view-with-theme-switcher__layout_theme_alfa-on-color & {
                     color: #fff;
                     text-shadow: -0.03ex 0 #fff, 0.03ex 0 #fff;
                 }
@@ -40,7 +40,7 @@
                 &:hover, &:active {
                     color: rgba(240, 50, 38, 1);
 
-                    .styleguide_theme_alfa-on-color & {
+                    .view-with-theme-switcher__layout_theme_alfa-on-color & {
                         color: #fff;
                     }
                 }
