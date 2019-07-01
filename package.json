@@ -1,6 +1,6 @@
 {
   "name": "arui-demo",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Alfa-Bank UI demo",
   "repository": {
     "type": "git",
@@ -48,7 +48,7 @@
     "prop-types": "15.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-frame-component": "2.0.2",
+    "react-frame-component": "3.0.0",
     "react-icons": "2.2.7",
     "react-styleguidist": "9.0.8"
   },

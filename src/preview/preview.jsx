@@ -48,8 +48,6 @@ export default class extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        console.log(nextContext);
-
         return (
             this.state.error !== nextState.error ||
             this.props.code !== nextProps.code ||
