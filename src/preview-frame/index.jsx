@@ -5,6 +5,7 @@
  */
 
 import { Component } from 'react';
+import autobind from 'core-decorators/lib/autobind';
 import Type from 'prop-types';
 import Frame from 'react-frame-component';
 
@@ -26,13 +27,6 @@ export default class PreviewFrame extends Component {
 
     iframe;
     contentDocument;
-
-    componentDidMount() {
-        this.contentDocument = this.iframe.getDoc();
-        setTimeout(() => {
-            this.forceUpdate();
-        }, 0);
-    }
 
     render(cn) {
         const styleLinks = Array.from(document.querySelectorAll('link[type="text/css"]'));
@@ -73,6 +67,7 @@ export default class PreviewFrame extends Component {
                     ref={ (node) => {
                         this.iframe = node;
                     } }
+                    contentDidMount={ this.handleContentDidMount }
                 >
                     { styleLinks.map(({ href }) => (
                         <link key={ href } href={ href } type='text/css' rel='stylesheet' />
@@ -82,6 +77,14 @@ export default class PreviewFrame extends Component {
                 </Frame>
             </div>
         );
+    }
+
+    @autobind
+    handleContentDidMount() {
+        this.contentDocument = this.iframe.getDoc();
+        setTimeout(() => {
+            this.forceUpdate();
+        }, 0);
     }
 }
 
