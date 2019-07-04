@@ -67,6 +67,7 @@ export default class PreviewFrame extends Component {
                     ref={ (node) => {
                         this.iframe = node;
                     } }
+                    mountTarget='.frame-root'
                     contentDidMount={ this.handleContentDidMount }
                 >
                     { styleLinks.map(({ href }) => (
@@ -81,10 +82,12 @@ export default class PreviewFrame extends Component {
 
     @autobind
     handleContentDidMount() {
-        this.contentDocument = this.iframe.getDoc();
-        setTimeout(() => {
-            this.forceUpdate();
-        }, 0);
+        if (this.iframe.node) {
+            this.contentDocument = this.iframe.getDoc();
+            setTimeout(() => {
+                this.forceUpdate();
+            }, 0);
+        }
     }
 }
 
