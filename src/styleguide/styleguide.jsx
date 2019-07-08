@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import RsgStyleGuide from 'react-styleguidist/lib/client/rsg-components/StyleGuide/StyleGuide';
 import { isPlayground, getPlayground } from '../playground/utils';
 
+import 'arui-feather/main.css';
+
 function StyleGuide(props) {
     let newProps = props;
 
