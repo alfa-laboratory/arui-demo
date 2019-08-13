@@ -40,6 +40,7 @@
   "author": "Good guys from Alfa Laboratory",
   "license": "MPL-2.0",
   "dependencies": {
+    "arui-feather": "^14.1.0",
     "clipboard-copy": "2.0.0",
     "core-decorators": "^0.20.0",
     "gulp-babel": "^8.0.0",
@@ -52,9 +53,9 @@
     "react-styleguidist": "9.0.8"
   },
   "peerDependencies": {
+    "arui-feather": ">=12.5.0",
     "react": ">=15.6",
-    "react-dom": ">=15.6",
-    "arui-feather": ">=12.5.0"
+    "react-dom": ">=15.6"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.4.3",
@@ -73,10 +74,10 @@
     "conventional-github-releaser": "2.0.2",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-16": "1.1.1",
+    "eslint-plugin-chai-friendly": "^0.4.1",
     "husky": "0.14.3",
     "jest": "22.1.0",
     "library-utils": "2.3.1",
-    "lint-staged": "8.1.1",
-    "eslint-plugin-chai-friendly": "^0.4.1"
+    "lint-staged": "8.1.1"
   }
 }
