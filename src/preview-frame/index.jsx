@@ -7,7 +7,7 @@
 import { Component } from 'react';
 import autobind from 'core-decorators/lib/autobind';
 import Type from 'prop-types';
-import Frame from 'react-frame-component';
+import Frame, { FrameContextConsumer } from 'react-frame-component';
 
 import cn from 'arui-feather/cn';
 
@@ -17,20 +17,22 @@ import './index.css';
 export default class PreviewFrame extends Component {
     static propTypes = {
         children: Type.node,
-        height: Type.number,
+        height: Type.oneOfType(Type.number, Type.string),
         width: Type.oneOfType(Type.number, Type.string)
     };
 
     static defaultProps = {
         width: '100%'
-    }
+    };
 
     iframe;
     contentDocument;
 
     render(cn) {
         const styleLinks = Array.from(document.querySelectorAll('link[type="text/css"]'));
-        const appStyles = Array.from(document.querySelectorAll('style')).map(style => style.innerText).join('\n');
+        const appStyles = Array.from(document.querySelectorAll('style'))
+            .map(style => style.innerText)
+            .join('\n');
         const styles = `
             html { height: 100%; width: 100%; }
 
@@ -47,6 +49,11 @@ export default class PreviewFrame extends Component {
             .frame-content {
                 height: 100%;
             }
+
+            .frame-content .page {
+                height: auto;
+                min-height: 100vh;
+            }
         ${appStyles}`;
 
         let height = 0;
@@ -60,34 +67,42 @@ export default class PreviewFrame extends Component {
             style: { height: this.props.height || height, width: this.props.width }
         };
 
+        // Прокинуть children отдельно разметкой, иначе в консоли присутствует Warning
+        const { children, ...restIframeProps } = iframeProps;
+
         return (
-            <div className={ cn() } >
-                <Frame
-                    { ...iframeProps }
-                    ref={ (node) => {
-                        this.iframe = node;
-                    } }
-                    mountTarget='.frame-root'
-                    contentDidMount={ this.handleContentDidMount }
-                >
-                    { styleLinks.map(({ href }) => (
-                        <link key={ href } href={ href } type='text/css' rel='stylesheet' />
-                    )) }
-                    <style dangerouslySetInnerHTML={ { __html: styles } } />
-                    { this.props.children }
+            <div className={ cn() }>
+                <Frame { ...restIframeProps } mountTarget='.frame-root'>
+                    <FrameContextConsumer>
+                        { ({ document }) => {
+                            this.handleContentDidMount(document);
+
+                            return (
+                                <div>
+                                    { styleLinks.map(({ href }) => (
+                                        <link key={ href } href={ href } type='text/css' rel='stylesheet' />
+                                    )) }
+                                    <style dangerouslySetInnerHTML={ { __html: styles } } />
+                                    { children }
+                                </div>
+                            );
+                        } }
+                    </FrameContextConsumer>
                 </Frame>
             </div>
         );
     }
 
     @autobind
-    handleContentDidMount() {
-        if (this.iframe.node) {
-            this.contentDocument = this.iframe.getDoc();
-            setTimeout(() => {
-                this.forceUpdate();
-            }, 0);
+    handleContentDidMount(document) {
+        if (this.contentDocument === document) {
+            return;
         }
+
+        this.contentDocument = document;
+        setTimeout(() => {
+            this.forceUpdate();
+        }, 64);
     }
 }
 
