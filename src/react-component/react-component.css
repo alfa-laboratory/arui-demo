@@ -15,7 +15,7 @@
             letter-spacing: normal;
 
             + .tab-item {
-                margin-left: 24px;
+                margin-left: var(--gap-xl);
             }
 
             span {

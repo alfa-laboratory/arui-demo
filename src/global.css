@@ -19,7 +19,7 @@
     }
 
     .column.l {
-        padding-right: 20px;
+        padding-right: var(--gap-l);
     }
 
     .column.xl {
@@ -27,7 +27,7 @@
     }
 
     & + & {
-        margin-top: 20px;
+        margin-top: var(--gap-l);
     }
 }
 

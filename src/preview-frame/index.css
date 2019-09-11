@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 .preview-frame {
-    margin: -20px;
+    margin: var(--gap-l-neg);
 
     iframe {
         display: block;

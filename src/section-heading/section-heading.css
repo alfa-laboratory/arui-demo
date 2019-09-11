@@ -2,7 +2,7 @@
 
 .section-heading {
     .heading {
-        margin: 0 0 24px;
+        margin: 0 0 var(--gap-xl);
         font-size: 28px;
 
         /* TODO 24px to fit long component names */
@@ -12,7 +12,7 @@
 
         @media (--medium) {
             font-size: var(--font-size-3xl);
-            line-height: 1.1;
+            line-height: var(--line-height-extra-condensed);
         }
     }
 

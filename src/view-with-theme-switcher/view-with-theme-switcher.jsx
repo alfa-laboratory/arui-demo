@@ -61,7 +61,7 @@ class ViewWithThemeSwitcher extends Component {
     render(cn) {
         return (
             <ThemeProvider theme={ this.state.theme } >
-                <div>
+                <div className={ cn() }>
                     <div className={ cn('button-group') } >
                         {
                             !hasValidUrlTheme() &&
