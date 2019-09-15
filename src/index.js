@@ -61,26 +61,26 @@ module.exports = {
         Link: {
             link: {
                 '&, &:link, &:visited': {
-        			color: 'rgba(11, 31, 53, 1)',
+                    color: 'rgba(11, 31, 53, 1)',
                     opacity: 0.8,
                     cursor: 'pointer',
                     '.view-with-theme-switcher__layout_theme_alfa-on-color &': {
                         color: '#fff'
                     }
-        		},
-        		'&:hover, &:active': {
+                },
+                '&:hover, &:active': {
                     color: 'rgba(11, 31, 53, 1)',
-        			opacity: 1,
+                    opacity: 1,
                     '.view-with-theme-switcher__layout_theme_alfa-on-color &': {
                         color: '#fff'
                     }
-        		}
+                }
             }
         },
         ComponentsList: {
             isSelected: {
-		        fontWeight: 'bold'
-	        }
+                fontWeight: 'bold'
+            }
         }
     }
 };

@@ -1,21 +1,6 @@
 {
-  "presets": [
-    "babel-preset-react"
-  ],
+  "presets": ["arui-presets/babel"],
   "plugins": [
-    "transform-decorators-legacy",
-    ["transform-react-remove-prop-types", {"mode": "wrap"}],
-    "babel-plugin-transform-export-extensions",
-    ["babel-plugin-transform-decorators", {"legacy":true}],
-    ["babel-plugin-transform-class-properties", {"loose": true}],
-    "babel-plugin-dynamic-import-node",
-    "babel-plugin-transform-object-rest-spread",
-  ],
-  "env": {
-    "test": {
-      "plugins": [
-        "babel-plugin-dynamic-import-node"
-      ]
-    }
-  }
+    ["transform-react-remove-prop-types", {"mode": "wrap"}]
+  ]
 }
