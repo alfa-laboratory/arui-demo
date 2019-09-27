@@ -1,12 +1,15 @@
+@import 'arui-feather/vars.css';
+
 .styleguide-logo {
     box-sizing: border-box;
-    display: inline-block;
-    width: 100%;
+    display: block;
     padding: var(--gap-m);
 
     img {
-        width: auto;
+        display: block;
+        width: 100%;
         height: auto;
-        max-height: 200px;
+        max-width: 168px;
+        margin: 0 auto;
     }
 }

@@ -1,59 +1,42 @@
 @import 'arui-feather/vars.css';
 
 .react-component {
-    margin: 0 0 36px;
+    .tab-item {
+        padding: 0 0 9px;
+        font-size: var(--font-size-l);
+        text-transform: none;
+        letter-spacing: normal;
 
-    &__tab-button {
-        .tabs {
-            margin: 36px 0;
+        + .tab-item {
+            margin-left: var(--gap-xl);
         }
 
-        .tab-item {
-            padding: 0 0 9px;
-            font-size: var(--font-size-l);
-            text-transform: none;
-            letter-spacing: normal;
+        span {
+            display: none;
+        }
 
-            + .tab-item {
-                margin-left: var(--gap-xl);
-            }
-
+        @media (--medium) {
             span {
-                display: none;
+                display: inline;
+            }
+        }
+
+        &_checked {
+            color: rgba(240, 50, 38, 1);
+            text-shadow: -0.03ex 0 rgba(240, 50, 38, 1), 0.03ex 0 rgba(240, 50, 38, 1);
+
+            .view-with-theme-switcher__layout_theme_alfa-on-color & {
+                color: #fff;
+                text-shadow: -0.03ex 0 #fff, 0.03ex 0 #fff;
             }
 
-            @media (--medium) {
-                span {
-                    display: inline;
-                }
-            }
-
-            &_checked {
+            &:hover, &:active {
                 color: rgba(240, 50, 38, 1);
-                text-shadow: -0.03ex 0 rgba(240, 50, 38, 1), 0.03ex 0 rgba(240, 50, 38, 1);
 
                 .view-with-theme-switcher__layout_theme_alfa-on-color & {
                     color: #fff;
-                    text-shadow: -0.03ex 0 #fff, 0.03ex 0 #fff;
-                }
-
-                &:hover, &:active {
-                    color: rgba(240, 50, 38, 1);
-
-                    .view-with-theme-switcher__layout_theme_alfa-on-color & {
-                        color: #fff;
-                    }
                 }
             }
-        }
-    }
-
-    &__docs {
-        p {
-            margin: 36px 0;
-            padding: 0;
-            font-size: var(--font-size-m);
-            line-height: 1.5;
         }
     }
 }

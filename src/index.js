@@ -20,7 +20,7 @@ module.exports = {
     styles: {
         Playground: {
             root: {
-                marginBottom: 0
+                margin: '24px 0'
             },
             controls: {
                 display: 'none'
@@ -30,8 +30,12 @@ module.exports = {
             root: {
                 marginBottom: 0
             },
+            docs: {
+                margin: '0 0 32px'
+            },
             tabButtons: {
-                marginBottom: '24px',
+                maxWidth: 800,
+                margin: '0 0 32px',
                 boxShadow: 'inset 0 -1px 0 0 rgba(0, 0, 0, 0.1)'
             }
         },
@@ -41,45 +45,53 @@ module.exports = {
             },
             logo: {
                 padding: 0,
-                borderBottom: 'none'
+                borderBottom: 'none',
+                '@media (max-width: 600px)': {
+                    display: 'none'
+                }
             },
             sidebar: {
-                background: '#eee',
-                '.view-with-theme-switcher__layout_theme_alfa-on-color &': {
-                    isolate: false,
-                    background: 'rgb(56, 76, 94)'
-                },
-                border: 'none'
+                background: '#f3f4f5',
+                border: 'none',
+                '@media (max-width: 600px)': {
+                    padding: 0
+                }
             },
             footer: {
                 display: 'none'
             },
             content: {
-                maxWidth: 'none'
+                maxWidth: 'none',
+                padding: '36px 60px',
+                '@media (max-width: 767px)': {
+                    padding: '24px 12px'
+                }
             }
         },
         Link: {
             link: {
                 '&, &:link, &:visited': {
+                    display: 'block',
                     color: 'rgba(11, 31, 53, 1)',
-                    opacity: 0.8,
-                    cursor: 'pointer',
-                    '.view-with-theme-switcher__layout_theme_alfa-on-color &': {
-                        color: '#fff'
-                    }
+                    cursor: 'pointer'
                 },
                 '&:hover, &:active': {
-                    color: 'rgba(11, 31, 53, 1)',
-                    opacity: 1,
-                    '.view-with-theme-switcher__layout_theme_alfa-on-color &': {
-                        color: '#fff'
-                    }
+                    color: 'rgba(11, 31, 53, 1)'
                 }
             }
         },
         ComponentsList: {
+            list: {
+                padding: '0 16px 16px'
+            },
+            isChild: {
+                opacity: 0.6,
+                transition: '0.2s',
+                fontWeight: '400'
+            },
             isSelected: {
-                fontWeight: 'bold'
+                opacity: 1,
+                fontWeight: '400'
             }
         }
     }

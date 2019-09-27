@@ -1,9 +1,9 @@
 @import 'arui-feather/vars.css';
 
 .pathline {
-    margin: var(--gap-s-neg) 0 var(--gap-xl);
+    margin: var(--gap-s-neg) 0 var(--gap-2xl);
     font-size: var(--font-size-m);
-    line-height: 1.5;
+    line-height: 1.2;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 
     &_theme_alfa-on-color {
@@ -16,6 +16,7 @@
 
     &__copy-button {
         position: absolute;
+        margin-top: -4px;
         color: inherit;
         opacity: 0.5;
 

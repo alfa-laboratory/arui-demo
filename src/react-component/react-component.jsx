@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import cn from 'arui-feather/cn';
 import ReactComponent from 'react-styleguidist/lib/client/rsg-components/ReactComponent/ReactComponent';
 
+import './react-component.css';
+
+@cn('react-component')
 export default class extends Component {
     static propTypes = {
         component: {
@@ -15,7 +19,7 @@ export default class extends Component {
         this.reactComponent.handleTabChange('examples-view');
     }
 
-    render() {
+    render(cn) {
         const examples = [];
         const { component } = this.props;
         const RULES_PLACEHOLDER = /===RULES===/g;
@@ -43,12 +47,14 @@ export default class extends Component {
         };
 
         return (
-            <ReactComponent
-                ref={ (node) => {
-                    this.reactComponent = node;
-                } }
-                { ...modifiedProps }
-            />
+            <div className={ cn() }>
+                <ReactComponent
+                    ref={ (node) => {
+                        this.reactComponent = node;
+                    } }
+                    { ...modifiedProps }
+                />
+            </div>
         );
     }
 }

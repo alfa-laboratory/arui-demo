@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import cn from 'arui-feather/cn';
 import Examples from 'rsg-components/Examples';
 
-import './index.css';
+import '../examples.css';
 
 @cn('examples')
 export default class extends React.Component {

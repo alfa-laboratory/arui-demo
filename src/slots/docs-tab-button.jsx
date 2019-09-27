@@ -8,7 +8,7 @@ const DocsTabButton = (props) => {
 
     return showButton ? (
         <TabItem { ...props } checked={ props.active }>
-            Свойства и методы
+            Свойства <span>и методы</span>
         </TabItem>
     ) : null;
 };

@@ -2,34 +2,39 @@
 /* eslint react/forbid-prop-types: 0 */
 
 import Type from 'prop-types';
-
+import cn from 'arui-feather/cn';
 import Examples from 'rsg-components/Examples/Examples';
 
 const ExamplePlaceholder = process.env.STYLEGUIDIST_ENV === 'production'
     ? () => <div />
     : require('react-styleguidist/lib/client/rsg-components/ExamplePlaceholder').default;
 
-function ExamplesTab(component) {
-    const { props } = component;
-    const { usages } = props;
+import './examples.css';
 
-    return (
-        usages.length > 0 ? (
-            <Examples
-                exampleMode='expand'
-                examples={ usages }
-                name={ props.displayName }
-            />
-        ) : (
-            <ExamplePlaceholder name={ props.displayName } />
-        )
-    );
+@cn('examples')
+export default class extends React.Component {
+    static propTypes = {
+        usages: Type.array,
+        examples: Type.array,
+        displayName: Type.string
+    };
+
+    render(cn) {
+        const { props } = this.props;
+        const { usages } = props;
+
+        return (
+            usages.length > 0 ? (
+                <div className={ cn() }>
+                    <Examples
+                        exampleMode='expand'
+                        examples={ usages }
+                        name={ props.displayName }
+                    />
+                </div>
+            ) : (
+                <ExamplePlaceholder name={ props.displayName } />
+            )
+        );
+    }
 }
-
-ExamplesTab.propTypes = {
-    usages: Type.array,
-    examples: Type.array,
-    displayName: Type.string
-};
-
-export default ExamplesTab;
