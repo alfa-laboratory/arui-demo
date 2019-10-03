@@ -5,6 +5,8 @@ import FeatherButton from 'arui-feather/button';
 
 /**
  * Компонент кнопки (да, она нажимается!).
+ * Компонент для отображения суммы, согласно следующему гайдлайну:
+ * https://design.alfabank.ru/patterns/amount
  */
 class Button extends React.Component {
     static propTypes = {

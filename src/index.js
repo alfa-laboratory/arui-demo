@@ -44,6 +44,7 @@ module.exports = {
                 backgroundColor: 'inherit'
             },
             logo: {
+                position: 'relative',
                 padding: 0,
                 borderBottom: 'none',
                 '@media (max-width: 600px)': {

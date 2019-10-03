@@ -1,15 +1,48 @@
 @import 'arui-feather/vars.css';
 
-.styleguide-logo {
-    box-sizing: border-box;
-    display: block;
+.styleguide {
     padding: var(--gap-m);
 
-    img {
+    &__logo {
+        position: relative;
         display: block;
         width: 100%;
-        height: auto;
-        max-width: 168px;
-        margin: 0 auto;
+        padding: 0 0 100%;
+        background-color: #ef3124;
+
+        &:before {
+            display: block;
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 16px;
+            height: 100px;
+            background: url(./logo.svg) no-repeat 100% 100%;
+            background-size: auto 100%;
+            content: "";
+        }
+    }
+
+    &__name {
+        display: block;
+        position: absolute;
+        left: 16px;
+        right: 16px;
+        top: 16px;
+        color: #fff;
+        font-size: 18px;
+        line-height: 1;
+        font-weight: 900;
+    }
+
+    + p {
+        display: block;
+        position: absolute;
+        right: 32px;
+        bottom: 32px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 13px;
+        line-height: 1;
     }
 }

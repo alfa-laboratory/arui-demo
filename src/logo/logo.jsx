@@ -5,9 +5,24 @@
  */
 
 import React from 'react';
+import Type from 'prop-types';
+import cn from 'arui-feather/cn';
 
-export default () => (
-    <a className='styleguide-logo' href='https://github.com/alfa-laboratory/arui-feather'>
-        <img width='168' height='168' alt='Alfa UI' src='https://rawgit.com/alfa-laboratory/arui-feather/master/logo.svg' />
-    </a>
-);
+@cn('styleguide')
+class Logo extends React.Component {
+    render(cn) {
+        return (
+            <div className={ cn() }>
+                <a className={ cn('logo') } href='https://github.com/alfa-laboratory/arui-feather'>
+                    <span className={ cn('name') }>{ this.props.children }</span>
+                </a>
+            </div>
+        );
+    }
+}
+
+Logo.propTypes = {
+    children: Type.node
+};
+
+export default Logo;

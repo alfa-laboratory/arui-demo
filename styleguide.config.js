@@ -11,6 +11,8 @@ const upperCamelCase = require('uppercamelcase');
 const WEBPACK_BASE_TEMPLATE = require('./webpack.base');
 const config = require('./src/index');
 
+const { version } = require('./package');
+
 const PORT = parseInt(process.env.PORT || 8080, 10);
 const TITLE = 'arui-demo';
 
@@ -22,6 +24,7 @@ module.exports = {
         './src/global.css'
     ],
     title: TITLE,
+    version,
     serverPort: PORT,
     skipComponentsWithoutExample: true,
     components: 'components/**/*.jsx',
