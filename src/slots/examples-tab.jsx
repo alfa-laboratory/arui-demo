@@ -1,6 +1,7 @@
 /* eslint import/no-extraneous-dependencies: [2, {"devDependencies": true}] */
 /* eslint react/forbid-prop-types: 0 */
 
+import React from 'react';
 import Type from 'prop-types';
 import cn from 'arui-feather/cn';
 import Examples from 'rsg-components/Examples/Examples';

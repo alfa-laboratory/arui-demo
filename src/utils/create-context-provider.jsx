@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import React from 'react';
 
 export default function createContextProvider(context) {
     class ContextProvider extends React.Component {
