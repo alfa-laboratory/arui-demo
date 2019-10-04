@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-content: stretch;
     align-items: stretch;
-    margin: 24px 0;
+    margin: var(--gap-xl) 0;
 
     &__section {
         flex: 0 0 100%;
@@ -57,8 +57,8 @@
             content: 'Неправильно';
 
             .view-with-theme-switcher__layout_theme_alfa-on-color & {
-                color: rgba(239, 49, 36, 1);
-                border-color: rgba(239, 49, 36, 1);
+                color: var(--color-red-brand);
+                border-color: var(--color-red-brand);
             }
         }
 

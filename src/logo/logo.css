@@ -9,6 +9,13 @@
         width: 100%;
         padding: 0 0 100%;
         background-color: #ef3124;
+        overflow: hidden;
+        text-decoration: none;
+
+        @media (max-width: 600px) {
+            padding: 0;
+            background-color: transparent;
+        }
 
         &:before {
             display: block;
@@ -19,7 +26,30 @@
             height: 100px;
             background: url(./logo.svg) no-repeat 100% 100%;
             background-size: auto 100%;
-            content: "";
+            content: '';
+
+            @media (max-width: 600px) {
+                display: none;
+            }
+        }
+
+        &:after {
+            display: block;
+            position: absolute;
+            left: -48px;
+            right: -48px;
+            top: 0;
+            color: var(--color-white-05);
+            font-size: var(--font-size-4xl);
+            line-height: 56px;
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            content: 'Digital Design System';
+
+            @media (max-width: 600px) {
+                display: none;
+            }
         }
     }
 
@@ -28,11 +58,19 @@
         position: absolute;
         left: 16px;
         right: 16px;
-        top: 16px;
+        top: 12px;
         color: #fff;
-        font-size: 18px;
+        font-size: var(--font-size-l);
         line-height: 1;
         font-weight: 900;
+
+        @media (max-width: 600px) {
+            position: relative;
+            left: auto;
+            right: auto;
+            top: auto;
+            color: #0b1f35;
+        }
     }
 
     + p {
@@ -41,8 +79,16 @@
         right: 32px;
         bottom: 32px;
         margin: 0;
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 13px;
+        color: var(--color-white-60);
+        font-size: var(--font-size-s);
         line-height: 1;
+
+        @media (max-width: 600px) {
+            right: 16px;
+            top: 16px;
+            bottom: auto;
+            color: var(--color-dark-indigo-60);
+            line-height: var(--font-size-l);
+        }
     }
 }

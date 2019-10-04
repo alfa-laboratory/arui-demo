@@ -24,6 +24,10 @@ module.exports = {
             },
             controls: {
                 display: 'none'
+            },
+            preview: {
+                overflowX: 'auto',
+                '-webkit-overflow-scrolling': 'touch'
             }
         },
         ReactComponent: {
@@ -41,21 +45,29 @@ module.exports = {
         },
         StyleGuide: {
             root: {
-                backgroundColor: 'inherit'
+                backgroundColor: 'inherit',
+                '@media (max-width: 600px)': {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flexWrap: 'nowrap',
+                    justifyContent: 'flex-start',
+                    alignContent: 'stretch',
+                    alignItems: 'stretch'
+                }
             },
             logo: {
                 position: 'relative',
                 padding: 0,
-                borderBottom: 'none',
-                '@media (max-width: 600px)': {
-                    display: 'none'
-                }
+                border: 0
             },
             sidebar: {
                 background: '#f3f4f5',
                 border: 'none',
                 '@media (max-width: 600px)': {
-                    padding: 0
+                    padding: 0,
+                    order: 1,
+                    flex: '1 0 auto',
+                    width: '100%'
                 }
             },
             footer: {
@@ -65,7 +77,10 @@ module.exports = {
                 maxWidth: 'none',
                 padding: '36px 60px',
                 '@media (max-width: 767px)': {
-                    padding: '24px 12px'
+                    padding: '24px 12px',
+                    order: 2,
+                    flex: '1 0 auto',
+                    width: '100%'
                 }
             }
         },
@@ -74,6 +89,7 @@ module.exports = {
                 '&, &:link, &:visited': {
                     display: 'block',
                     color: 'rgba(11, 31, 53, 1)',
+                    fontSize: '16px',
                     cursor: 'pointer'
                 },
                 '&:hover, &:active': {
@@ -81,9 +97,22 @@ module.exports = {
                 }
             }
         },
+        TableOfContents: {
+            search: {
+                padding: '0 16px'
+            },
+            input: {
+                fontSize: '16px'
+            }
+        },
         ComponentsList: {
             list: {
-                padding: '0 16px 16px'
+                padding: '16px',
+                '@media (max-width: 600px)': {
+                    whiteSpace: 'nowrap',
+                    overflowX: 'auto',
+                    '-webkit-overflow-scrolling': 'touch'
+                }
             },
             isChild: {
                 opacity: 0.6,

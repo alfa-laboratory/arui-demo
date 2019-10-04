@@ -1,13 +1,13 @@
 .pre {
     display: block;
     margin: 36px 0;
-    padding: 20px;
-    color: rgba(11, 31, 53, 0.9);
-    font-size: 16px;
+    padding: var(--gap-l);
+    color: var(--color-dark-indigo);
+    font-size: var(--font-size-m);
     line-height: 1.5;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     white-space: pre;
-    background-color: rgba(11, 31, 53, 0.05);
+    background-color: var(--color-dark-indigo-05);
 
     .view-with-theme-switcher__layout_theme_alfa-on-color & {
         background-color: #f3f4f5;
