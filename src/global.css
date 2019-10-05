@@ -1,0 +1,50 @@
+@import 'arui-feather/vars.css';
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+
+    .column {
+        padding-right: 10px;
+    }
+
+    .column.s {
+        padding-right: 5px;
+    }
+
+    .column.m {
+        padding-right: 10px;
+    }
+
+    .column.l {
+        padding-right: var(--gap-l);
+    }
+
+    .column.xl {
+        padding-right: 30px;
+    }
+
+    & + & {
+        margin-top: var(--gap-l);
+    }
+}
+
+.icon_theme_alfa-on-color {
+    background-image:
+        linear-gradient(
+            color(var(--color-background-alfa-on-white) a(.03)) 3%,
+            color(var(--color-background-alfa-on-white) a(.03)) 3%
+        );
+}
+
+.icon_theme_alfa-on-white {
+    background-image:
+        linear-gradient(
+            color(var(--color-background-alfa-on-color) a(.03)) 3%,
+            color(var(--color-background-alfa-on-color) a(.03)) 3%
+        );
+}

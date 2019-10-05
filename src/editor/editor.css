@@ -1,0 +1,16 @@
+@import 'arui-feather/vars.css';
+
+.editor {
+    position: relative;
+
+    &__share-button {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        min-width: 40px;
+        padding: 0;
+        color: inherit;
+        font-size: var(--font-size-m);
+    }
+}

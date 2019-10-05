@@ -1,0 +1,42 @@
+@import 'arui-feather/vars.css';
+
+.pathline {
+    margin: var(--gap-s-neg) 0 var(--gap-2xl);
+    font-size: var(--font-size-m);
+    line-height: var(--line-height-condensed);
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    background: 'nice';
+
+    @media (max-width: 600px) {
+        font-size: var(--font-size-s);
+    }
+
+    &_theme_alfa-on-color {
+        color: var(--color-white-30);
+    }
+
+    &_theme_alfa-on-white {
+        color: var(--color-dark-indigo-30);
+    }
+
+    &__copy-button {
+        position: absolute;
+        margin-top: var(--gap-2xs-neg);
+        color: inherit;
+        opacity: 0.5;
+
+        @media (max-width: 600px) {
+            margin-top: var(--gap-xs-neg);
+        }
+
+        &:active {
+            opacity: var(--opacity-active);
+        }
+
+        svg {
+            width: auto;
+            height: 16px;
+            fill: currentColor;
+        }
+    }
+}
