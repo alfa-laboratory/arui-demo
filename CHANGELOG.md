@@ -1,3 +1,18 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/alfa-laboratory/arui-feather/compare/v1.0.11...v2.0.0) (2019-10-08)
+
+
+### Bug Fixes
+
+* missed feather vars ([fab0e35](https://github.com/alfa-laboratory/arui-feather/commit/fab0e35))
+
+
+### Features
+
+* demo styles ([e7cd97d](https://github.com/alfa-laboratory/arui-feather/commit/e7cd97d))
+
+
+
 <a name="1.0.11"></a>
 ## 1.0.11 (2019-10-03)
 
