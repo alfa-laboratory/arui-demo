@@ -1,3 +1,5 @@
+@import 'arui-feather/vars.css';
+
 .rules {
     display: flex;
     flex-direction: row;
