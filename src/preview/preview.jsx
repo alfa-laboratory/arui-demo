@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import cn from 'arui-feather/cn';
 import PlaygroundError from 'rsg-components/PlaygroundError';
 import ReactExample from 'rsg-components/ReactExample';
+import ThemeProvider from 'arui-feather/theme-provider';
 import createContextProvider from '../utils/create-context-provider';
 
 const improveErrorMessage = message => message.replace(
@@ -120,12 +121,14 @@ export default class extends Component {
 
         const wrappedComponent = (
             <ContextProvider>
-                <ReactExample
-                    code={ code }
-                    evalInContext={ this.props.evalInContext }
-                    onError={ this.handleError }
-                    compilerConfig={ this.context.config.compilerConfig }
-                />
+                <ThemeProvider theme={ this.context.theme }>
+                    <ReactExample
+                        code={ code }
+                        evalInContext={ this.props.evalInContext }
+                        onError={ this.handleError }
+                        compilerConfig={ this.context.config.compilerConfig }
+                    />
+                </ThemeProvider>
             </ContextProvider>
         );
 
