@@ -3,12 +3,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 import Examples from 'rsg-components/Examples';
 
 import '../examples.css';
 
-@cn('examples')
 export default class extends React.Component {
     static propTypes = {
         props: {
@@ -16,13 +15,15 @@ export default class extends React.Component {
         }
     };
 
-    render(cn) {
+    cn = createCn('examples');
+
+    render() {
         const { props } = this.props;
         const { rules } = props;
 
         return (
             rules.length > 0 ? (
-                <div className={ cn() }>
+                <div className={ this.cn() }>
                     <Examples examples={ rules } name={ props.displayName } />
                 </div>
             ) : (

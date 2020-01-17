@@ -1,14 +1,14 @@
 import { PureComponent } from 'react';
 import Type from 'prop-types';
 
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 
 import './pre.css';
 
-@cn('pre')
 class PreRenderer extends PureComponent {
-    render(cn) {
-        return <pre className={ cn() }>{ this.props.children }</pre>;
+    cn = createCn('pre');
+    render() {
+        return <pre className={ this.cn() }>{ this.props.children }</pre>;
     }
 }
 

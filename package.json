@@ -40,9 +40,8 @@
   "author": "Good guys from Alfa Laboratory",
   "license": "MPL-2.0",
   "dependencies": {
-    "arui-feather": "^14.1.0",
+    "bem-react-classname": "^1.1.0",
     "clipboard-copy": "2.0.0",
-    "core-decorators": "^0.20.0",
     "gulp-babel": "^8.0.0",
     "markdown-to-jsx": "6.6.1",
     "prop-types": "15.6.1",

@@ -2,13 +2,13 @@ import { PureComponent } from 'react';
 import Type from 'prop-types';
 
 import Heading from 'arui-feather/heading';
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 
 import './section-heading.css';
 
-@cn('section-heading')
 class SectionHeadingRenderer extends PureComponent {
-    render(cn) {
+    cn = createCn('section-heading');
+    render() {
         const sizes = ['xl', 'l', 'm', 's'];
         /*
          * TODO @teryaew: handle 0-6 range for heading sizes
@@ -16,7 +16,7 @@ class SectionHeadingRenderer extends PureComponent {
          */
 
         return (
-            <div className={ cn() }>
+            <div className={ this.cn() }>
                 <Heading size={ sizes[this.props.depth - 1] } id={ this.props.id }>
                     <a href={ this.context.displayMode === 'all' ? this.props.href : null }>
                         { this.props.children }

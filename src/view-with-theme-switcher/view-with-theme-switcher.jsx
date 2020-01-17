@@ -7,7 +7,7 @@
 import { Component } from 'react';
 import Type from 'prop-types';
 import ThemeProvider from 'arui-feather/theme-provider';
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 
 import { getParameterByName } from '../utils/url';
 
@@ -21,7 +21,6 @@ function hasValidUrlTheme() {
     return theme && THEMES.indexOf(theme) > -1;
 }
 
-@cn('view-with-theme-switcher')
 class ViewWithThemeSwitcher extends Component {
     static propTypes = {
         children: Type.node
@@ -34,6 +33,8 @@ class ViewWithThemeSwitcher extends Component {
     state = {
         theme: LIGHT_THEME
     }
+
+    cn = createCn('view-with-theme-switcher');
 
     constructor() {
         super();
@@ -58,24 +59,24 @@ class ViewWithThemeSwitcher extends Component {
         }
     }
 
-    render(cn) {
+    render() {
         return (
             <ThemeProvider theme={ this.state.theme } >
-                <div className={ cn() }>
-                    <div className={ cn('button-group') } >
+                <div className={ this.cn() }>
+                    <div className={ this.cn('button-group') } >
                         {
                             !hasValidUrlTheme() &&
                             THEMES.map(theme => (
                                 <button
                                     key={ theme }
-                                    className={ cn('button', { theme, selected: theme === this.state.theme }) }
+                                    className={ this.cn('button', { theme, selected: theme === this.state.theme }) }
                                     onClick={ () => this.handleOnChange(theme) }
                                 />
                             ))
                         }
                     </div>
-                    <div className={ cn('layout', { theme: this.state.theme }) } >
-                        <div className={ cn('wrapper') }>
+                    <div className={ this.cn('layout', { theme: this.state.theme }) } >
+                        <div className={ this.cn('wrapper') }>
                             { this.props.children }
                         </div>
                     </div>

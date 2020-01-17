@@ -1,13 +1,13 @@
 import React from 'react';
 import Usage from 'rsg-components/Usage';
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 import './index.css';
 
-@cn('docs-tab')
 export default class extends React.Component {
-    render(cn) {
+    cn = createCn('docs-tab');
+    render() {
         return (
-            <div className={ cn() }>
+            <div className={ this.cn() }>
                 <Usage { ...this.props } />
             </div>
         );

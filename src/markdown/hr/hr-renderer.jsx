@@ -1,11 +1,11 @@
 import { PureComponent } from 'react';
 
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 
-@cn('hr')
 class HrRenderer extends PureComponent {
-    render(cn) {
-        return <hr className={ cn() } />;
+    cn = createCn('hr');
+    render() {
+        return <hr className={ this.cn() } />;
     }
 }
 

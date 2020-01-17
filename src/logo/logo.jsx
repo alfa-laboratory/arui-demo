@@ -6,15 +6,15 @@
 
 import React from 'react';
 import Type from 'prop-types';
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 
-@cn('styleguide')
 class Logo extends React.Component {
-    render(cn) {
+    cn = createCn('styleguide');
+    render() {
         return (
-            <div className={ cn() }>
-                <a className={ cn('logo') } href='https://github.com/alfa-laboratory/arui-feather'>
-                    <span className={ cn('name') }>{ this.props.children }</span>
+            <div className={ this.cn() }>
+                <a className={ this.cn('logo') } href='https://github.com/alfa-laboratory/arui-feather'>
+                    <span className={ this.cn('name') }>{ this.props.children }</span>
                 </a>
             </div>
         );
