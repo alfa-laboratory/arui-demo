@@ -7,17 +7,17 @@ import MdContentCopy from 'react-icons/lib/md/content-copy';
 
 import IconButton from 'arui-feather/icon-button';
 
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 
-@cn('pathline')
 class PathlineRenderer extends Component {
-    render(cn) {
+    cn = createCn('pathline');
+    render() {
         return (
-            <div className={ cn() }>
+            <div className={ this.cn() }>
                 { this.props.children }
                 <IconButton
                     size='s'
-                    className={ cn('copy-button') }
+                    className={ this.cn('copy-button') }
                     title='Скопировать в буфер'
                     onClick={ () => copy(this.props.children) }
                 >

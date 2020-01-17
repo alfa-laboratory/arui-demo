@@ -5,15 +5,13 @@
  */
 
 import { Component } from 'react';
-import autobind from 'core-decorators/lib/autobind';
 import Type from 'prop-types';
 import Frame, { FrameContextConsumer } from 'react-frame-component';
 
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 
 import './index.css';
 
-@cn('preview-frame')
 export default class PreviewFrame extends Component {
     static propTypes = {
         children: Type.node,
@@ -25,10 +23,23 @@ export default class PreviewFrame extends Component {
         width: '100%'
     };
 
+    cn = createCn('preview-frame');
+
     iframe;
     contentDocument;
 
-    render(cn) {
+    handleContentDidMount = (document) => {
+        if (this.contentDocument === document) {
+            return;
+        }
+
+        this.contentDocument = document;
+        setTimeout(() => {
+            this.forceUpdate();
+        }, 64);
+    }
+
+    render() {
         const styleLinks = Array.from(document.querySelectorAll('link[type="text/css"]'));
         const appStyles = Array.from(document.querySelectorAll('style'))
             .map(style => style.innerText)
@@ -71,7 +82,7 @@ export default class PreviewFrame extends Component {
         const { children, ...restIframeProps } = iframeProps;
 
         return (
-            <div className={ cn() }>
+            <div className={ this.cn() }>
                 <Frame { ...restIframeProps } mountTarget='.frame-root'>
                     <FrameContextConsumer>
                         { ({ document }) => {
@@ -91,18 +102,6 @@ export default class PreviewFrame extends Component {
                 </Frame>
             </div>
         );
-    }
-
-    @autobind
-    handleContentDidMount(document) {
-        if (this.contentDocument === document) {
-            return;
-        }
-
-        this.contentDocument = document;
-        setTimeout(() => {
-            this.forceUpdate();
-        }, 64);
     }
 }
 

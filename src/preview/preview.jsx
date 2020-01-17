@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import autobind from 'core-decorators/lib/autobind';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 import PlaygroundError from 'rsg-components/PlaygroundError';
 import ReactExample from 'rsg-components/ReactExample';
 import ThemeProvider from 'arui-feather/theme-provider';
@@ -13,7 +12,6 @@ const improveErrorMessage = message => message.replace(
     'Check the code of your example in a Markdown file or in the editor below.'
 );
 
-@cn('preview')
 export default class extends Component {
     static propTypes = {
         code: PropTypes.string.isRequired,
@@ -29,6 +27,18 @@ export default class extends Component {
     state = {
         error: null
     };
+
+    cn = createCn('preview');
+
+    handleError = (err) => {
+        this.unmountPreview();
+
+        this.setState({
+            error: improveErrorMessage(err.toString())
+        });
+
+        console.error(err); // eslint-disable-line no-console
+    }
 
     constructor(props, context) {
         super(props, context);
@@ -74,11 +84,11 @@ export default class extends Component {
         this.unmountPreview();
     }
 
-    render(cn) {
+    render() {
         const { error } = this.state;
 
         return (
-            <div className={ cn() } >
+            <div className={ this.cn() } >
                 <div
                     ref={ (ref) => {
                         this.mountNode = ref;
@@ -87,17 +97,6 @@ export default class extends Component {
                 { error && <PlaygroundError message={ error } /> }
             </div>
         );
-    }
-
-    @autobind
-    handleError(err) {
-        this.unmountPreview();
-
-        this.setState({
-            error: improveErrorMessage(err.toString())
-        });
-
-        console.error(err); // eslint-disable-line no-console
     }
 
     unmountPreview() {
@@ -142,4 +141,3 @@ export default class extends Component {
         });
     }
 }
-

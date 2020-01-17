@@ -1,12 +1,12 @@
 import { PureComponent } from 'react';
 import Type from 'prop-types';
 
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 
-@cn('table')
 class TableRenderer extends PureComponent {
-    render(cn) {
-        return <table className={ cn() }>{ this.props.children }</table>;
+    cn = createCn('table');
+    render() {
+        return <table className={ this.cn() }>{ this.props.children }</table>;
     }
 }
 

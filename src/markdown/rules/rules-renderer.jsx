@@ -1,12 +1,12 @@
 import { PureComponent } from 'react';
 import Type from 'prop-types';
 
-import cn from 'arui-feather/cn';
+import { createCn } from 'bem-react-classname';
 
-@cn('rules')
 class Rules extends PureComponent {
-    render(cn) {
-        return <blockquote className={ cn() }>{ this.props.children }</blockquote>;
+    cn = createCn('rules');
+    render() {
+        return <blockquote className={ this.cn() }>{ this.props.children }</blockquote>;
     }
 }
 Rules.propTypes = {
