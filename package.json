@@ -1,6 +1,6 @@
 {
   "name": "arui-demo",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Alfa-Bank UI demo",
   "repository": {
     "type": "git",
@@ -58,7 +58,7 @@
     "react-dom": ">=15.6"
   },
   "devDependencies": {
-    "arui-feather": "^14.1.0",
+    "arui-feather": "16.0.4-beta.6",
     "arui-presets": "4.13.4",
     "arui-presets-lint": "^1.2.0",
     "arui-presets-ts": "3.0.0",

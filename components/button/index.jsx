@@ -1,5 +1,6 @@
 import React from 'react';
 import Type from 'prop-types';
+import { withTheme } from 'arui-feather/cn';
 
 import FeatherButton from 'arui-feather/button';
 
@@ -8,7 +9,7 @@ import FeatherButton from 'arui-feather/button';
  * Компонент для отображения суммы, согласно следующему гайдлайну:
  * https://design.alfabank.ru/patterns/amount
  */
-class Button extends React.Component {
+export class Button extends React.Component {
     static propTypes = {
         /** Текст кнопки */
         text: Type.node,
@@ -27,4 +28,4 @@ class Button extends React.Component {
     }
 }
 
-export default Button;
+export default withTheme(Button);
