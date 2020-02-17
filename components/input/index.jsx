@@ -1,8 +1,8 @@
 import React from 'react';
-
+import { withTheme } from 'arui-feather/cn';
 import FeatherInput from 'arui-feather/input';
 
-class Input extends React.Component {
+export class Input extends React.Component {
     render() {
         return (
             <FeatherInput view='filled' label='Инпут' />
@@ -10,4 +10,4 @@ class Input extends React.Component {
     }
 }
 
-export default Input;
+export default withTheme(Input);
