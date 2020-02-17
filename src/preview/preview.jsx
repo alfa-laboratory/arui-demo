@@ -111,6 +111,7 @@ export default class extends Component {
         });
 
         const { code } = this.props;
+        const config = this.context.config;
 
         if (!code) {
             return;
@@ -125,7 +126,7 @@ export default class extends Component {
                         code={ code }
                         evalInContext={ this.props.evalInContext }
                         onError={ this.handleError }
-                        compilerConfig={ this.context.config.compilerConfig }
+                        compilerConfig={ config && config.compilerConfig }
                     />
                 </ThemeProvider>
             </ContextProvider>
