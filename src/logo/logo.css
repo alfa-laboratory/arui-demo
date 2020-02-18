@@ -8,7 +8,7 @@
         display: block;
         width: 100%;
         padding: 0 0 100%;
-        background-color: #ef3124;
+        background-color: var(--color-red-brand);
         overflow: hidden;
         text-decoration: none;
 
@@ -39,7 +39,8 @@
             left: -48px;
             right: -48px;
             top: 0;
-            color: var(--color-white-05);
+            color: var(--color-accent-content-minor);
+            opacity: var(--opacity-disabled);
             font-size: var(--font-size-4xl);
             line-height: 56px;
             font-weight: 900;
@@ -69,7 +70,7 @@
             left: auto;
             right: auto;
             top: auto;
-            color: #0b1f35;
+            color: var(--color-dark-indigo);
         }
     }
 
