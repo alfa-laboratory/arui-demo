@@ -9,7 +9,11 @@ function StyleGuide(props) {
     let newProps = props;
 
     if (location.hash === '') { // eslint-disable-line no-restricted-globals
-        window.location.hash = `/${props.sections[0].components[0].name}`;
+        if (props.sections[0].components && props.sections[0].components.length > 0) {
+            window.location.hash = `/${props.sections[0].components[0].name}`;
+        } else {
+            window.location.hash = `/${props.sections[0].name}`;
+        }
 
         return null;
     }
@@ -28,6 +32,15 @@ function StyleGuide(props) {
 
 StyleGuide.propTypes = {
     sections: PropTypes.arrayOf({
+        title: PropTypes.string,
+        content: PropTypes.string,
+        name: PropTypes.string,
+        sectionDepth: PropTypes.number,
+        ignore: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+        external: PropTypes.bool,
+        href: PropTypes.string,
+        usageMode: PropTypes.string,
+        exampleMode: PropTypes.string,
         components: PropTypes.arrayOf({
             name: PropTypes.string
         })
