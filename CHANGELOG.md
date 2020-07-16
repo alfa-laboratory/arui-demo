@@ -1,3 +1,20 @@
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/alfa-laboratory/arui-feather/compare/v2.0.0...v3.1.0) (2020-07-16)
+
+
+### Bug Fixes
+
+* add condition for ridirect ([8073689](https://github.com/alfa-laboratory/arui-feather/commit/8073689))
+
+
+### Features
+
+* support new theme provider ([d7094bb](https://github.com/alfa-laboratory/arui-feather/commit/d7094bb))
+* update peerdep ([87fb1b4](https://github.com/alfa-laboratory/arui-feather/commit/87fb1b4))
+* update react-styleguidist version ([e0b26c3](https://github.com/alfa-laboratory/arui-feather/commit/e0b26c3))
+
+
+
 <a name="3.0.0"></a>
 # 3.0.0 (2020-01-17)
 
