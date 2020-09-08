@@ -1,8 +1,6 @@
 @import 'arui-feather/vars.css';
 
 .preview-frame {
-    margin: var(--gap-l-neg);
-
     iframe {
         display: block;
         width: 100%;
