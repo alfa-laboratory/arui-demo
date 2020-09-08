@@ -1,3 +1,13 @@
+<a name="3.2.0"></a>
+# [3.2.0](https://github.com/alfa-laboratory/arui-feather/compare/v3.1.0...v3.2.0) (2020-09-08)
+
+
+### Bug Fixes
+
+* remove neg margins ([c9daa68](https://github.com/alfa-laboratory/arui-feather/commit/c9daa68))
+
+
+
 <a name="3.1.0"></a>
 # [3.1.0](https://github.com/alfa-laboratory/arui-feather/compare/v2.0.0...v3.1.0) (2020-07-16)
 
