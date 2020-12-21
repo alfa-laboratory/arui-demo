@@ -47,13 +47,24 @@
         right: 14px;
         top: 14px;
         padding: var(--gap-xs);
-        background-repeat: no-repeat;
-        appearance: none;
-        box-shadow: none;
+        padding-left: 0;
         cursor: pointer;
+        border: 0;
+        border-bottom: 1px solid black;
+        background-color: transparent;
 
         &:focus {
             outline: none;
+        }
+
+        &_alfa-on-color {
+            color: var(--color-content-alfa-on-color);
+            border-bottom-color: var(--color-content-alfa-on-color);
+        }
+
+        &_alfa-dark {
+            color: var(--color-dark-text-primary);
+            border-bottom-color: var(--color-dark-text-primary);
         }
     }
 }

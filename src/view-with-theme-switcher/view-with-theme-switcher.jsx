@@ -66,7 +66,7 @@ class ViewWithThemeSwitcher extends Component {
             <ThemeProvider theme={ this.state.theme } >
                 <div className={ this.cn() }>
                     <div className={ this.cn('button-group') } >
-                        <select onChange={ this.handleChange } className={ this.cn('theme-select') }>
+                        <select onChange={ this.handleChange } className={ this.cn('theme-select', { [this.state.theme]: true }) }>
                             {
                                 !hasValidUrlTheme() &&
                             THEMES.map(theme => (
