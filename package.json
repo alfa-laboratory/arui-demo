@@ -55,6 +55,7 @@
     "react-dom": ">=16.8.0"
   },
   "devDependencies": {
+    "@alfalab/core-components-vars": "^2.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "arui-feather": "^16.0.3",
@@ -72,5 +73,8 @@
     "library-utils": "2.4.1",
     "lint-staged": "8.1.1",
     "webpack": "4.28.0"
+  },
+  "optionalDependencies": {
+    "@alfalab/core-components-vars": "^2.1.0"
   }
 }
