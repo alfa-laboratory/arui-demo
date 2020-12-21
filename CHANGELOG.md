@@ -1,3 +1,14 @@
+<a name="3.3.0"></a>
+# [3.3.0](https://github.com/alfa-laboratory/arui-feather/compare/v3.2.0...v3.3.0) (2020-12-21)
+
+
+### Features
+
+* **theme:** add light and dark theme ([7a87feb](https://github.com/alfa-laboratory/arui-feather/commit/7a87feb))
+* **theme:** add pretty select ([9322a53](https://github.com/alfa-laboratory/arui-feather/commit/9322a53))
+
+
+
 <a name="3.2.0"></a>
 # [3.2.0](https://github.com/alfa-laboratory/arui-feather/compare/v3.1.0...v3.2.0) (2020-09-08)
 
