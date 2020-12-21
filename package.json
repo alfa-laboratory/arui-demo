@@ -43,7 +43,7 @@
     "bem-react-classname": "^1.1.0",
     "clipboard-copy": "2.0.0",
     "gulp-babel": "^8.0.0",
-    "markdown-to-jsx": "6.6.1",
+    "markdown-to-jsx": "6.11.4",
     "prop-types": "15.6.1",
     "react-frame-component": "4.1.0",
     "react-icons": "2.2.7",
