@@ -1,4 +1,5 @@
 @import 'arui-feather/vars.css';
+@import '@alfalab/core-components-vars/colors-bluetint.css';
 
 .view-with-theme-switcher {
     &__layout {
@@ -10,6 +11,16 @@
         &_theme_alfa-on-color {
             color: var(--color-content-alfa-on-color);
             background: color(var(--color-background-alfa-on-color) a(.9));
+        }
+
+        &_theme_alfa-dark {
+            color: var(--color-dark-text-primary);
+            background: var(--color-dark-bg-primary);
+        }
+
+        &_theme_alfa-light {
+            color: var(--color-light-text-primary);
+            background: var(--color-light-bg-primary);
         }
     }
 
@@ -31,34 +42,18 @@
         }
     }
 
-    &__button {
+    &__theme-select {
         position: fixed;
         right: 14px;
         top: 14px;
-        width: 36px;
-        height: 36px;
-        padding: 0;
-        border: 0;
-        border-radius: 0;
-        background-color: transparent;
+        padding: var(--gap-xs);
         background-repeat: no-repeat;
-        background-position: 50% 50%;
-        background-size: 36px 36px;
-        background-image: url('./icons/on-white.svg');
         appearance: none;
         box-shadow: none;
         cursor: pointer;
 
         &:focus {
             outline: none;
-        }
-
-        &_theme_alfa-on-white {
-            background-image: url('./icons/on-color.svg');
-        }
-
-        &_selected {
-            display: none;
         }
     }
 }

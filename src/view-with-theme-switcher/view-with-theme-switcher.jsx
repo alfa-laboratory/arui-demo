@@ -11,9 +11,11 @@ import { createCn } from 'bem-react-classname';
 
 import { getParameterByName } from '../utils/url';
 
-const LIGHT_THEME = 'alfa-on-white';
-const DARK_THEME = 'alfa-on-color';
-const THEMES = [LIGHT_THEME, DARK_THEME];
+const WHITE_THEME = 'alfa-on-white';
+const COLOR_THEME = 'alfa-on-color';
+const LIGHT_THEME = 'alfa-light';
+const DARK_THEME = 'alfa-dark';
+const THEMES = [WHITE_THEME, COLOR_THEME, LIGHT_THEME, DARK_THEME];
 
 function hasValidUrlTheme() {
     const theme = getParameterByName('theme');
@@ -31,14 +33,14 @@ class ViewWithThemeSwitcher extends Component {
     }
 
     state = {
-        theme: LIGHT_THEME
+        theme: WHITE_THEME
     }
 
     cn = createCn('view-with-theme-switcher');
 
     constructor() {
         super();
-        this.handleOnChange = this.handleOnChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
     getChildContext() {
@@ -64,16 +66,14 @@ class ViewWithThemeSwitcher extends Component {
             <ThemeProvider theme={ this.state.theme } >
                 <div className={ this.cn() }>
                     <div className={ this.cn('button-group') } >
-                        {
-                            !hasValidUrlTheme() &&
+                        <select onChange={ this.handleChange } className={ this.cn('theme-select') }>
+                            {
+                                !hasValidUrlTheme() &&
                             THEMES.map(theme => (
-                                <button
-                                    key={ theme }
-                                    className={ this.cn('button', { theme, selected: theme === this.state.theme }) }
-                                    onClick={ () => this.handleOnChange(theme) }
-                                />
+                                <option key={ theme } value={ theme }>{ theme }</option>
                             ))
-                        }
+                            }
+                        </select>
                     </div>
                     <div className={ this.cn('layout', { theme: this.state.theme }) } >
                         <div className={ this.cn('wrapper') }>
@@ -85,8 +85,8 @@ class ViewWithThemeSwitcher extends Component {
         );
     }
 
-    handleOnChange(theme) {
-        this.setState({ theme });
+    handleChange(e) {
+        this.setState({ theme: e.target.value });
     }
 
     setTheme(theme) {
